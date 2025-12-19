@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mike's Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #e4e4e4;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .subtitle {
+            color: #8892b0;
+            font-size: 1.1rem;
+        }
+
+        .projects {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .project-card h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #64ffda;
+        }
+
+        .project-card p {
+            color: #8892b0;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            color: #5a6380;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #64ffda;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Mike's Projects</h1>
+            <p class="subtitle">A collection of web apps and fun stuff</p>
+        </header>
+
+        <div class="projects">
+            <a href="https://jollyhrothgar.github.io/baby-tracker" class="project-card">
+                <h2>Baby Tracker</h2>
+                <p>Track and monitor baby activities</p>
+            </a>
+
+            <a href="https://jollyhrothgar.github.io/The_Passing_Fancies" class="project-card">
+                <h2>The Passing Fancies</h2>
+                <p>Creative projects and experiments</p>
+            </a>
+
+            <a href="https://jollyhrothgar.github.io/wood_cut" class="project-card">
+                <h2>Wood Cut</h2>
+                <p>Woodworking projects and designs</p>
+            </a>
+
+            <a href="https://jollyhrothgar.github.io/Banjo-Tabinator" class="project-card">
+                <h2>Banjo Tabinator</h2>
+                <p>Banjo tablature tools and resources</p>
+            </a>
+        </div>
+
+        <footer>
+            <p>Find me on <a href="https://github.com/Jollyhrothgar">GitHub</a></p>
+        </footer>
+    </div>
+</body>
+</html>
