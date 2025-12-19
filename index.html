@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mike's Projects</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,116 +15,176 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #faf9f7;
+            color: #1a1a1a;
             min-height: 100vh;
-            color: #e4e4e4;
-            padding: 2rem;
+            line-height: 1.6;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1100px;
             margin: 0 auto;
+            padding: 4rem 2rem;
         }
 
         header {
-            text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         h1 {
-            font-size: 2.5rem;
-            font-weight: 300;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
-            color: #fff;
         }
 
-        .subtitle {
-            color: #8892b0;
+        .tagline {
             font-size: 1.1rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 4rem;
+            align-items: start;
         }
 
         .projects {
-            display: grid;
-            gap: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
         }
 
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            padding: 1.5rem;
+        .project {
             text-decoration: none;
             color: inherit;
-            transition: transform 0.2s, background 0.2s;
+            display: block;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid #e0e0e0;
+            transition: opacity 0.2s;
         }
 
-        .project-card:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 0.08);
+        .project:last-child {
+            border-bottom: none;
         }
 
-        .project-card h2 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 0.5rem;
-            color: #64ffda;
+        .project:hover {
+            opacity: 0.7;
         }
 
-        .project-card p {
-            color: #8892b0;
+        .project h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project p {
+            color: #444;
+            font-size: 1rem;
+            max-width: 500px;
+        }
+
+        .bio-card {
+            position: sticky;
+            top: 2rem;
+        }
+
+        .bio-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            filter: grayscale(20%);
+        }
+
+        .bio-card h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .bio-card p {
+            color: #444;
             font-size: 0.95rem;
+            margin-bottom: 1.5rem;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 4rem;
-            color: #5a6380;
-            font-size: 0.9rem;
-        }
-
-        footer a {
-            color: #64ffda;
+        .bio-card a {
+            color: #1a1a1a;
             text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #1a1a1a;
+            transition: border-color 0.2s;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .bio-card a:hover {
+            border-color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .bio-card {
+                order: -1;
+                position: static;
+                max-width: 280px;
+            }
+
+            .container {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Mike's Projects</h1>
-            <p class="subtitle">A collection of web apps and fun stuff</p>
+            <h1>Projects</h1>
+            <p class="tagline">Things I've built</p>
         </header>
 
-        <div class="projects">
-            <a href="https://jollyhrothgar.github.io/baby-tracker" class="project-card">
-                <h2>Baby Tracker</h2>
-                <p>Track and monitor baby activities</p>
-            </a>
+        <div class="main-content">
+            <div class="projects">
+                <a href="https://jollyhrothgar.github.io/baby-tracker" class="project">
+                    <h2>Baby Tracker</h2>
+                    <p>A web app to track the growth of my incoming kid in real time. Because parenting should come with a dashboard.</p>
+                </a>
 
-            <a href="https://jollyhrothgar.github.io/The_Passing_Fancies" class="project-card">
-                <h2>The Passing Fancies</h2>
-                <p>Creative projects and experiments</p>
-            </a>
+                <a href="https://jollyhrothgar.github.io/The_Passing_Fancies" class="project">
+                    <h2>The Passing Fancies</h2>
+                    <p>The website for my band. Band bios, booking information, and links to some of our past performances.</p>
+                </a>
 
-            <a href="https://jollyhrothgar.github.io/wood_cut" class="project-card">
-                <h2>Wood Cut</h2>
-                <p>Woodworking projects and designs</p>
-            </a>
+                <a href="https://jollyhrothgar.github.io/wood_cut" class="project">
+                    <h2>Wood Cut</h2>
+                    <p>A web app to compute what dimensional lumber you need to buy based on a cutlist. No more guessing at the lumber yard.</p>
+                </a>
 
-            <a href="https://jollyhrothgar.github.io/Banjo-Tabinator" class="project-card">
-                <h2>Banjo Tabinator</h2>
-                <p>Banjo tablature tools and resources</p>
-            </a>
+                <a href="https://jollyhrothgar.github.io/Banjo-Tabinator" class="project">
+                    <h2>Banjo Tabinator</h2>
+                    <p>An experiment in creating a browser-based banjo tablature editor and player.</p>
+                </a>
+            </div>
+
+            <aside class="bio-card">
+                <img src="Mike.JPG" alt="Mike">
+                <h3>Mike</h3>
+                <p>Huge nerd, banjo player, data scientist, physicist, pizza maker & eater.</p>
+                <a href="https://github.com/Jollyhrothgar">GitHub</a>
+            </aside>
         </div>
-
-        <footer>
-            <p>Find me on <a href="https://github.com/Jollyhrothgar">GitHub</a></p>
-        </footer>
     </div>
 </body>
 </html>
