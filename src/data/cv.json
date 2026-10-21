@@ -36,7 +36,7 @@
           "highlights": [],
           "projects": [
             {
-              "name": "AI code reviewer and review-quality research",
+              "name": "Designed and implemented company-wide AI code review tooling",
               "year": "2026",
               "highlights": [
                 "Designed, built, evaluated, and launched an AI code reviewer in GitHub that took first-round review off engineers and cut time to approval 41-56% on size-matched changes by ending drawn-out multi-round review threads",
@@ -46,14 +46,14 @@
               ]
             },
             {
-              "name": "Metadata registry architecture",
+              "name": "Architected data provenance metadata registry for all data artifacts",
               "year": "2026",
               "highlights": [
                 "Set the company's data-provenance direction by designing a metadata registry for every dataset and model, writing its build-versus-adopt analysis, and driving its adoption into the shared data platform"
               ]
             },
             {
-              "name": "Vulnerability detection research",
+              "name": "Transformed and hardened vulnerability detection workflows",
               "year": "2025-2026",
               "highlights": [
                 "Matched a deep-learning vulnerability detector for compiled code at 97.6% pairwise accuracy with gradient-boosted models on domain-knowledge features",
@@ -63,7 +63,7 @@
               ]
             },
             {
-              "name": "AI coding agent platform",
+              "name": "Established internal AI engineering platform for all developer workflows",
               "year": "2025-2026",
               "highlights": [
                 "Designed, built, evaluated, and launched the company's AI coding agent platform, doubling engineering coding output",
@@ -73,7 +73,7 @@
               ]
             },
             {
-              "name": "Research ML pipeline platform",
+              "name": "Redesigned and led engineering efforts to standardize all ML training operations as directed acyclic graphs",
               "year": "2025",
               "highlights": [
                 "Designed and built the research team's Dagster pipeline platform through production Kubernetes, cutting environment setup from days to minutes and letting researchers launch GPU training jobs themselves",
@@ -90,7 +90,7 @@
               ]
             }
           ],
-          "summary": "AI security startup that finds vulnerabilities in compiled software; brought data science to its agentic development and its detection models"
+          "summary": "AI security startup that finds vulnerabilities in compiled software; brought measurement rigor, verification, analytics-empowered decision-making, data provenance best practices, and AI-native dev tools to its agentic development and its detection models"
         }
       ]
     },
@@ -314,6 +314,17 @@
   ],
   "publications": [
     {
+      "title": "Cross section and longitudinal single-spin asymmetry A_L for forward W±→μ±ν production in polarized p+p collisions at √s = 510 GeV",
+      "venue": "Phys. Rev. D 98, 032007",
+      "year": 2018,
+      "type": "article",
+      "url": "https://inspirehep.net/literature/1667398",
+      "collaboration": "PHENIX",
+      "authorCount": 431,
+      "selected": true,
+      "contribution": "Thesis analysis was foundational to this measurement, developed in a tight working group with Ralf Seidl, Francesca Giordano, Daniel Jumper, and Abraham Meles. Also helped build the resistive plate chambers (RPCs) that triggered on its forward muons, and helped collect the 2013 510 GeV dataset that makes up most of its data."
+    },
+    {
       "title": "Probing the Spin Structure of the Proton Using Polarized Proton-Proton Collisions and the Production of W Bosons",
       "venue": "PhD thesis, University of California, Riverside",
       "year": 2016,
@@ -321,6 +332,17 @@
       "url": "https://inspirehep.net/literature/1772024",
       "selected": true,
       "contribution": "Doctoral thesis constraining the sea-quark contribution to the proton's spin with W-boson production in PHENIX."
+    },
+    {
+      "title": "Measurement of parity-violating spin asymmetries in W± production at midrapidity in longitudinally polarized p+p collisions",
+      "venue": "Phys. Rev. D 93, 051103",
+      "year": 2016,
+      "type": "article",
+      "url": "https://inspirehep.net/literature/1365091",
+      "collaboration": "PHENIX",
+      "authorCount": 451,
+      "selected": true,
+      "contribution": "Helped collect the 2013 510 GeV dataset, one of the three polarized p+p runs this measurement combines."
     }
   ],
   "skills": [

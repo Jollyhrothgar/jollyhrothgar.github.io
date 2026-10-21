@@ -1,12 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
 import { cv, formatRange, formatYears } from '../lib/cv';
+import { publicationCount } from '../lib/inspire';
 
 const { basics } = cv;
 const work = cv.experience.filter((entry) => entry.kind === 'work');
 const other = cv.experience.filter((entry) => entry.kind !== 'work');
 const publications = cv.publications.filter((pub) => pub.selected);
 const inspire = basics.links.find((link) => link.label === 'INSPIRE-HEP');
+const inspireCount = inspire ? await publicationCount(inspire.url) : null;
 ---
 
 <Base title="CV · Mike Beaumier" description={`CV of ${basics.name}. ${basics.headline}`}>
@@ -18,7 +20,13 @@ const inspire = basics.links.find((link) => link.label === 'INSPIRE-HEP');
       <p class="contact">
         {basics.location && <span>{basics.location}</span>}
         {basics.email && <a href={`mailto:${basics.email}`}>{basics.email}</a>}
-        {basics.links.map((link) => <a href={link.url}>{link.label}</a>)}
+        {
+          basics.links.map((link) => (
+            <a href={link.url}>
+              {link === inspire && inspireCount ? `INSPIRE-HEP (${inspireCount} publications)` : link.label}
+            </a>
+          ))
+        }
       </p>
     </div>
     <button type="button" class="print" onclick="window.print()">Save as PDF</button>
@@ -94,7 +102,8 @@ const inspire = basics.links.find((link) => link.label === 'INSPIRE-HEP');
         </ul>
         {inspire && (
           <p class="more">
-            Full publication record on <a href={inspire.url}>INSPIRE-HEP</a>.
+            {inspireCount ? `All ${inspireCount} publications` : 'Full publication record'} on <a
+              href={inspire.url}>INSPIRE-HEP</a>.
           </p>
         )}
       </section>

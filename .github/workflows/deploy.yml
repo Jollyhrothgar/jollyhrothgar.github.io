@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Weekly rebuild, so build-time data like the INSPIRE publication count stays current
+  schedule:
+    - cron: '17 9 * * 1'
   workflow_dispatch:
 
 permissions:

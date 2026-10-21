@@ -1,0 +1,38 @@
+---
+// A section break: a banjo fingerboard inlay between two hairlines. The inlay is marker-10 from
+// Bluegrass Book's flying-eagle set (bluegrassbook.com, design/inlays/), flipped vertically. It
+// is drawn in currentColor, so the color below sets it.
+import inlay from '../assets/inlays/marker-10.svg?raw';
+---
+
+<div class="divider" role="separator">
+  <span class="inlay" aria-hidden="true" set:html={inlay} />
+</div>
+
+<style>
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin: 2.75rem 0;
+    color: var(--text);
+  }
+
+  .divider::before,
+  .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .inlay {
+    display: flex;
+  }
+
+  .inlay :global(svg) {
+    width: 110px;
+    height: auto;
+    transform: scaleY(-1);
+  }
+</style>

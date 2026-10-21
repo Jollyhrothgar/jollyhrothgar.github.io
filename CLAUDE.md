@@ -17,7 +17,7 @@ npm run build    # writes dist/
 - `src/pages/`: one file per page
 - `src/layouts/Base.astro`: shared `<head>` and page shell
 - `src/styles/global.css`: site-wide styles. Page-specific styles live in each page's `<style>`.
-- `src/data/projects.json`: the project list on the home page
+- `src/data/projects.json`: the project list. Not shown on any page while the portfolio is being redesigned.
 - `src/data/cv.json`: the public CV, exported from the private resume repo. Its format is
   specified in `docs/cv-json.md` and `docs/cv.schema.json`. Never add anything to it that isn't
   meant to be public.
