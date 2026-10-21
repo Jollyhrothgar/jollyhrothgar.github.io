@@ -1,0 +1,402 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repo": "Jollyhrothgar/resume",
+    "commit": "88da90d"
+  },
+  "basics": {
+    "name": "Mike Beaumier",
+    "headline": "Data scientist and AI engineer. PhD in experimental particle physics.",
+    "location": "Southern California",
+    "links": [
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/michaelbeaumier"
+      },
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Jollyhrothgar"
+      },
+      {
+        "label": "INSPIRE-HEP",
+        "url": "https://inspirehep.net/authors/1291623"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "kind": "work",
+      "organization": "Delphos Labs",
+      "location": "Remote",
+      "roles": [
+        {
+          "title": "Founding Staff Data Scientist",
+          "start": "2025-10",
+          "end": null,
+          "highlights": [],
+          "projects": [
+            {
+              "name": "AI code reviewer and review-quality research",
+              "year": "2026",
+              "highlights": [
+                "Designed, built, evaluated, and launched an AI code reviewer in GitHub that took first-round review off engineers and cut time to approval 41-56% on size-matched changes by ending drawn-out multi-round review threads",
+                "Cut the AI code reviewer's cost to about a tenth of an engineer's review by redesigning it around one higher-quality agent",
+                "Designed and built a benchmark of human-reviewed pull requests, stratified by coding style, size, and domain, showing an AI code reviewer running without developer oversight matched human findings at 89.1% precision",
+                "Ran the head-to-head evaluation of AI code-review approaches that set the company's choice, picking a reviewer that caught nearly all known issues at a fraction of the cost"
+              ]
+            },
+            {
+              "name": "Metadata registry architecture",
+              "year": "2026",
+              "highlights": [
+                "Set the company's data-provenance direction by designing a metadata registry for every dataset and model, writing its build-versus-adopt analysis, and driving its adoption into the shared data platform"
+              ]
+            },
+            {
+              "name": "Vulnerability detection research",
+              "year": "2025-2026",
+              "highlights": [
+                "Matched a deep-learning vulnerability detector for compiled code at 97.6% pairwise accuracy with gradient-boosted models on domain-knowledge features",
+                "Designed and built an expert-in-the-loop annotation platform pairing structured LLM analysis (Pydantic AI) with expert review, which produced the company's gold-standard evaluation set for vulnerability detection in compiled code",
+                "Showed LoRA matching full fine-tuning of a 110M-parameter transformer for vulnerability detection in compiled code while training 1.07% of its parameters",
+                "Shaped the research direction toward agentic approaches with evidence from expert review, gradient-boosted baselines, and a LoRA study"
+              ]
+            },
+            {
+              "name": "AI coding agent platform",
+              "year": "2025-2026",
+              "highlights": [
+                "Designed, built, evaluated, and launched the company's AI coding agent platform, doubling engineering coding output",
+                "Designed and built the agent workflow that takes a ticket to a merged pull request, delegating each stage to shared skills",
+                "Designed and built a single source format for the company's agent skills, transpiled per editor, so each skill installed correctly in Claude Code, Cursor, and OpenCode without forking the library",
+                "Authored the RFC for measuring whether coding agents follow the company's written instructions, separating whether an agent consulted an instruction from whether its output conformed"
+              ]
+            },
+            {
+              "name": "Research ML pipeline platform",
+              "year": "2025",
+              "highlights": [
+                "Designed and built the research team's Dagster pipeline platform through production Kubernetes, cutting environment setup from days to minutes and letting researchers launch GPU training jobs themselves",
+                "Kept the research team's self-service pipeline platform architecturally coherent as adoption grew, writing its guide and design doc and guiding teammates through review as they built 3 research pipelines on it"
+              ]
+            },
+            {
+              "name": "Multi-agent orchestration and agent memory",
+              "highlights": [
+                "Designed and built a multi-agent orchestrator that ran parallel coding agents (Claude Code, Codex, Gemini CLI) to plan, write, review, and validate code autonomously over multi-hour runs, before such tools were standard",
+                "Separated real defects from style preferences in code from parallel coding agents by having a second vendor's model (Claude or OpenAI) review each agent's work and arbitrating disagreements before merge",
+                "Built long-term memory for coding agents, a Claude Code plugin with session hooks and durable journals, so what an agent learned carried across sessions and context compaction instead of being rediscovered",
+                "Built a service that condensed each coding-agent session (Claude Code, OpenCode) into a searchable, secret-redacted briefing with capped spend, so a person or another agent could resume after a crash or handoff"
+              ]
+            }
+          ],
+          "summary": "AI security startup that finds vulnerabilities in compiled software; brought data science to its agentic development and its detection models"
+        }
+      ]
+    },
+    {
+      "kind": "work",
+      "organization": "Google",
+      "location": "Irvine, CA",
+      "roles": [
+        {
+          "title": "Senior Data Scientist, Ads Safety",
+          "start": "2021-03",
+          "end": "2025-09",
+          "highlights": [],
+          "projects": [
+            {
+              "name": "Gemini review agent for ad-policy reviewers",
+              "year": "2024-2025",
+              "summary": "A Chrome extension built on an agent architecture: it processed each webpage and surfaced annotations that pointed human content reviewers to the parts most likely to violate ad policy.",
+              "highlights": [
+                "Conceived, architected, and led the launch of a Gemini-powered LLM agent that flagged ad-policy violations for Google's content reviewers, used in 40,000+ reviews a day and raising throughput 30% in A/B tests",
+                "Built and led the agent's cross-functional team of engineers, analysts, and product managers, and designed and built the A/B testing framework whose randomized controlled trials gated every launch"
+              ]
+            },
+            {
+              "name": "Quality measurement for LLM content classifiers",
+              "year": "2024-2025",
+              "highlights": [
+                "Guided the design and validated the launch of Google's LLM auto-labeling classifiers, trusted only where precision's 95% lower bound cleared 80%, scaling review 10x across billions of web pages",
+                "Set Google Ads Safety's org-wide launch QA for LLM content classifiers, designing and building the sampling-and-review check for classifiers set to launch unchecked after tuning on dozens of examples",
+                "Built precision dashboards for Google's production LLM content classifiers from a continuous stream of human-reviewed samples, using bootstrapped confidence intervals to flag underperformers for prompt retuning or retraining"
+              ]
+            },
+            {
+              "name": "Review efficiency for publisher safety",
+              "year": "2024",
+              "highlights": [
+                "Let Google's publisher-safety reviewers cover 30% more content at higher precision by leading a working group that cut reviews of pages that never served ads and set a cost-per-impact metric",
+                "Raised enforcement up to 200x on some policies with high-precision rules running at over 80% precision"
+              ]
+            },
+            {
+              "name": "Automatic Classification of Suspicious Web Content",
+              "year": "2023",
+              "highlights": [
+                "Designed and built AutoML classifiers on SQL pipelines joining web-content signals with past human review outcomes, cutting manual review up to 80% across hundreds of millions of pages, saving millions a year"
+              ]
+            },
+            {
+              "name": "Ad Query Forecasting to Prioritize Content Review for New URLs",
+              "year": "2022-2023",
+              "highlights": [
+                "Led a traffic-forecasting system end to end that flagged high-traffic new URLs within 90 minutes, cutting their harmful ad impressions 60% in the first 24 hours, in a pipeline streaming hundreds of millions of URLs weekly",
+                "Identified the 90-minute window after a high-traffic URL first appears in which most of its harmful ad impressions can be prevented, from time-series analysis of Google's ad-query logs covering billions of URLs"
+              ]
+            },
+            {
+              "name": "Machine learning fairness for content classification",
+              "year": "2022",
+              "highlights": [
+                "Led Google Ads Safety's ML fairness working group and set the org-wide bias metric for its content classifiers, false-positive-rate disparity on propensity-score-matched content, using human validation and hypothesis tests",
+                "Designed and scaled ML fairness measurement across Google's policy classifiers, finding classification disparities affecting protected groups and enabling their fixes"
+              ]
+            }
+          ],
+          "summary": "Data science, machine learning, and LLM systems for Google Ads Safety's policy enforcement across the web"
+        },
+        {
+          "title": "Senior Data Scientist, Google Customer Solutions",
+          "start": "2018-05",
+          "end": "2021-03",
+          "highlights": [],
+          "projects": [
+            {
+              "name": "Incremental spend from a partner incentive fund",
+              "year": "2020-2021",
+              "highlights": [
+                "Scoped, built, and delivered a self-updating dashboard measuring the daily incremental spend of Google's channel sales partners from a multi-million-dollar incentive fund, using counterfactual time-series forecasts fit on pre-fund spend"
+              ]
+            },
+            {
+              "name": "Measuring sales-program incrementality",
+              "year": "2020",
+              "highlights": [
+                "Wrote the requirements, built the data pipelines, and tech-led the team that shipped synthetic-control causal inference for 3 sales programs worth hundreds of millions of dollars where trials were not viable, validated on synthetic data and pre-treatment placebo tests"
+              ]
+            },
+            {
+              "name": "Advertiser churn prediction",
+              "year": "2019",
+              "highlights": [
+                "Built advertiser churn prediction end to end, from dataset and metrics to AutoML logistic-regression models and an automated lead pipeline and dashboard Google sales used to pick at-risk advertisers for high-touch outreach",
+                "Sized a churn-prevention pilot for Google's at-risk advertisers with iterative power analyses, including sensitivity to the churn rate, and designed the framework assigning advertisers to test and control groups"
+              ]
+            },
+            {
+              "name": "Revenue-based routing for new advertisers",
+              "highlights": [
+                "Built the data and real-time pipelines for a team model that classified each new advertiser's 91-day revenue bucket to pick its sales treatment, routing $8B+ in revenue across 7M+ new advertisers",
+                "Raised the precision of Google's new-advertiser revenue-routing model by redesigning its time-varying features as trend lines fit to each account's recent history, gaining 20%+ on high-spend advertisers and 28% on high-touch routing",
+                "Mentored and onboarded new members of the team behind Google's $8B+ new-advertiser revenue-routing model, kept its data pipelines stable, wrote the model's documentation, and presented its results to leadership"
+              ]
+            }
+          ],
+          "summary": "Data science for Google's advertiser sales organization, covering revenue routing, churn, and sales-program measurement"
+        }
+      ]
+    },
+    {
+      "kind": "volunteer",
+      "organization": "Tech For Campaigns",
+      "location": "Mountain View, CA",
+      "roles": [
+        {
+          "title": "Data Science Volunteer",
+          "start": "2019-08",
+          "end": "2019-11",
+          "highlights": [
+            "Built analysis framework to measure text messaging campaign impact for Florida state-level elections.",
+            "Engineered engagement metrics and provided recommendations for voter turn-out campaigns."
+          ],
+          "projects": []
+        }
+      ]
+    },
+    {
+      "kind": "work",
+      "organization": "Mercedes-Benz Research & Development North America",
+      "location": "Sunnyvale, CA",
+      "roles": [
+        {
+          "title": "Senior Machine Learning Engineer",
+          "start": "2016-08",
+          "end": "2018-04",
+          "highlights": [
+            "Led the final modeling stages of MBUX, Mercedes' flagship in-car system, whose probabilistic graphical models predicted each driver's destinations, media, and calls from privacy-preserving in-car data",
+            "Built a reporting framework and predictive models of when vehicles would need service from Mercedes' global aftermarket data, informing marketing and helping dealerships prevent customer churn",
+            "Built the end-to-end data and ML pipeline for a mobile EV-charging pilot, from a daily vehicle-telemetry pipeline and stakeholder dashboard to models predicting battery state, destination, and parking time",
+            "Built Mercedes' first ML model of tire replacement, using hierarchical modeling to time proactive dealership outreach"
+          ],
+          "projects": [],
+          "summary": "Machine learning for in-car personalization and vehicle service analytics"
+        }
+      ]
+    },
+    {
+      "kind": "research",
+      "organization": "University of California, Riverside",
+      "location": "Riverside, CA",
+      "roles": [
+        {
+          "title": "Doctoral Researcher, Physics",
+          "start": "2009-09",
+          "end": "2016-08",
+          "highlights": [
+            "Trained unbinned maximum-likelihood estimators on petabyte-scale collider data to identify rare particle decays",
+            "Ran parallel beam-collision simulations on high-performance computing clusters",
+            "Managed petabyte-scale online data reconstruction for the experiment",
+            "Built and tested particle-detector hardware for PHENIX",
+            "Award-winning teaching assistant: top 2% of evaluations, with department and university teaching awards"
+          ],
+          "projects": [],
+          "summary": "PhD research in the PHENIX collaboration at Brookhaven's Relativistic Heavy Ion Collider, constraining the sea-quark contribution to the proton's spin through W-boson production."
+        }
+      ]
+    },
+    {
+      "kind": "fellowship",
+      "organization": "Insight Data Science",
+      "location": "Silicon Valley, CA",
+      "roles": [
+        {
+          "title": "Data Science Fellow",
+          "start": "2016-01",
+          "end": "2016-03",
+          "highlights": [
+            "Built \"AleTrail,\" a full-stack web app for beer recommendations and customized pub crawls.",
+            "Scraped and processed brewery/review data; trained Naive Bayes classifier for beer flavor profiles.",
+            "Utilized Google Maps/Yelp APIs for geo-location and pub crawl generation."
+          ],
+          "projects": []
+        }
+      ]
+    },
+    {
+      "kind": "research",
+      "organization": "Western Washington University",
+      "location": "Bellingham, WA",
+      "roles": [
+        {
+          "title": "Undergraduate Researcher, Physics",
+          "start": "2008-09",
+          "end": "2009-06",
+          "highlights": [
+            "Developed lab protocols to synthesize/characterize superparamagnetic nanoscale magnetite."
+          ],
+          "projects": []
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "PhD, Experimental Particle Physics",
+      "institution": "University of California, Riverside",
+      "start": "2009-09",
+      "end": "2016-08",
+      "note": "Thesis: Probing the Spin Structure of the Proton Using Polarized Proton-Proton Collisions and the Production of W Bosons"
+    },
+    {
+      "degree": "M.S., Experimental Particle Physics",
+      "institution": "University of California, Riverside",
+      "start": "2009-09",
+      "end": "2012"
+    },
+    {
+      "degree": "B.S., Physics (Astronomy and Mathematics, Honors)",
+      "institution": "Western Washington University",
+      "start": "2004-09",
+      "end": "2009-06"
+    }
+  ],
+  "publications": [
+    {
+      "title": "Probing the Spin Structure of the Proton Using Polarized Proton-Proton Collisions and the Production of W Bosons",
+      "venue": "PhD thesis, University of California, Riverside",
+      "year": 2016,
+      "type": "thesis",
+      "url": "https://inspirehep.net/literature/1772024",
+      "selected": true,
+      "contribution": "Doctoral thesis constraining the sea-quark contribution to the proton's spin with W-boson production in PHENIX."
+    }
+  ],
+  "skills": [
+    {
+      "group": "AI engineering",
+      "items": [
+        "Coding agents",
+        "Coding-agent and harness evaluation",
+        "Multi-agent orchestration",
+        "Agent Skills",
+        "MCP",
+        "LLM evaluation",
+        "Prompt-injection threat modeling",
+        "LLM APIs (Claude, OpenAI, Gemini)",
+        "Pydantic AI (LLM structured outputs)",
+        "Few-shot prompting",
+        "LiteLLM"
+      ]
+    },
+    {
+      "group": "Machine learning",
+      "items": [
+        "Gradient-boosted trees (XGBoost, LightGBM)",
+        "LoRA fine-tuning",
+        "PyTorch",
+        "HuggingFace Transformers",
+        "Classification",
+        "Forecasting",
+        "AutoML",
+        "Production ML performance monitoring"
+      ]
+    },
+    {
+      "group": "Statistics and experimentation",
+      "items": [
+        "Regression (OLS, hierarchical)",
+        "Time-series forecasting",
+        "Churn prediction",
+        "Model stacking",
+        "A/B testing",
+        "Experimental design",
+        "Causal inference",
+        "Power analysis",
+        "Propensity score matching",
+        "Bootstrapped confidence intervals",
+        "Benchmark design",
+        "Hypothesis testing",
+        "Pilot design"
+      ]
+    },
+    {
+      "group": "Data engineering",
+      "items": [
+        "ETL pipelines",
+        "Real-time pipelines",
+        "TFX",
+        "Dagster",
+        "PostgreSQL",
+        "Metadata registry design"
+      ]
+    },
+    {
+      "group": "Programming and infrastructure",
+      "items": [
+        "Python",
+        "SQL",
+        "Pandas, NumPy, SciPy, statsmodels",
+        "Pydantic",
+        "DuckDB",
+        "Colab",
+        "Rust",
+        "Bash",
+        "Kubernetes",
+        "Docker",
+        "GitHub Actions"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+---
+import Base from '../layouts/Base.astro';
+import projects from '../data/projects.json';
+---
+
+<Base title="Mike's Projects">
+  <header>
+    <h1>Projects</h1>
+    <p class="tagline">Things I've built</p>
+  </header>
+
+  <div class="main-content">
+    <div class="projects">
+      {
+        projects.map((project) => (
+          <a href={project.url} class="project">
+            <h2>{project.title}</h2>
+            <p>{project.description}</p>
+          </a>
+        ))
+      }
+    </div>
+
+    <aside class="bio-card">
+      <img src="/Mike.JPG" alt="Mike" />
+      <h3>Mike</h3>
+      <p>Huge nerd, banjo player, data scientist, physicist, pizza maker & eater.</p>
+      <a href="https://github.com/Jollyhrothgar">GitHub</a>
+    </aside>
+  </div>
+</Base>
+
+<style>
+  header {
+    margin-bottom: 4rem;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 400;
+  }
+
+  .main-content {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .project {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #e0e0e0;
+    transition: opacity 0.2s;
+  }
+
+  .project:last-child {
+    border-bottom: none;
+  }
+
+  .project:hover {
+    opacity: 0.7;
+  }
+
+  .project h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project p {
+    color: #444;
+    font-size: 1rem;
+    max-width: 500px;
+  }
+
+  .bio-card {
+    position: sticky;
+    top: 2rem;
+  }
+
+  .bio-card img {
+    width: 100%;
+    aspect-ratio: 0.618;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    filter: grayscale(20%);
+  }
+
+  .bio-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .bio-card p {
+    color: #444;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bio-card a {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 2px solid #1a1a1a;
+    transition: border-color 0.2s;
+  }
+
+  .bio-card a:hover {
+    border-color: #888;
+  }
+
+  @media (max-width: 768px) {
+    .main-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .bio-card {
+      order: -1;
+      position: static;
+      max-width: 280px;
+    }
+  }
+</style>
