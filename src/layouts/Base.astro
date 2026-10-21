@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { cv } from '../lib/cv';
-import { getPosts, showConsulting } from '../lib/content';
+import { getPosts } from '../lib/content';
 
 interface Props {
   title: string;
@@ -17,7 +17,7 @@ const nav = [
   { href: '/', label: 'Home' },
   { href: '/projects/', label: 'Projects' },
   hasPosts && { href: '/blog/', label: 'Blog' },
-  showConsulting && { href: '/consulting/', label: 'Consulting' },
+  { href: '/consulting/', label: 'Consulting' },
   { href: '/cv/', label: 'CV' },
 ].filter((item) => item !== false);
 

@@ -1,11 +1,5 @@
 import { getCollection, type CollectionEntry } from 'astro:content';
 
-// Set to true once the consulting offer is decided. Until then the page is built only by
-// `npm run dev` and stays out of the production nav.
-export const CONSULTING_READY = false;
-
-export const showConsulting = CONSULTING_READY || import.meta.env.DEV;
-
 // Newest first. Drafts are included in dev only.
 export async function getPosts(): Promise<CollectionEntry<'blog'>[]> {
   const posts = await getCollection('blog', (post) => import.meta.env.DEV || !post.data.draft);

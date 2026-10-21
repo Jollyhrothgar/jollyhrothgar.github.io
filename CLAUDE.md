@@ -1,7 +1,7 @@
 # Introduction
 
-Mike's personal website, mikebeaumier.com: a home page, a CV, projects, a blog, and (in
-progress) a consulting page.
+Mike's personal website, mikebeaumier.com: a home page, a CV, projects, a blog, and a
+consulting page.
 
 ## Stack
 
@@ -28,7 +28,7 @@ npm run check    # type check
 - `src/content/projects/`: one Markdown file per project. Text below the frontmatter becomes a
   write-up page at `/projects/<file name>/`.
 - `src/content.config.ts`: the frontmatter each post and project must have
-- `src/lib/content.ts`: post and project helpers, and `CONSULTING_READY`
+- `src/lib/content.ts`: post and project helpers
 - `src/data/cv.json`: the public CV, exported from the private resume repo. Its format is
   specified in `docs/cv-json.md` and `docs/cv.schema.json`. Never add anything to it that isn't
   meant to be public.
@@ -36,11 +36,8 @@ npm run check    # type check
 
 ## Drafts
 
-- A post with `draft: true` appears only in `npm run dev`. The nav shows Blog only once a
-  published post exists.
-- The consulting page (`src/pages/consulting/[...index].astro`) is a draft until
-  `CONSULTING_READY` is set to `true` in `src/lib/content.ts`. Until then it is built only in dev
-  and left out of the production nav.
+A post with `draft: true` appears only in `npm run dev`. The nav shows Blog only once a
+published post exists.
 
 ## Style
 

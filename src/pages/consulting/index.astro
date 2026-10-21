@@ -1,18 +1,10 @@
 ---
-// DRAFT. The offer isn't decided yet, so this page is built only by `npm run dev`, and the
-// production build leaves it out. Once the copy is final, set CONSULTING_READY in
-// src/lib/content.ts. (The [...index] file name is what lets this route produce no page.)
 import Base from '../../layouts/Base.astro';
 import { cv } from '../../lib/cv';
-import { showConsulting } from '../../lib/content';
-
-export function getStaticPaths() {
-  return showConsulting ? [{ params: { index: undefined } }] : [];
-}
 
 const linkedin = cv.basics.links.find((link) => link.label === 'LinkedIn');
 
-// Draft areas, each drawn from work already on the CV. Rewrite or replace freely.
+// Each area draws on work already on the CV
 const areas = [
   {
     title: 'AI and LLM evaluation',
@@ -45,10 +37,6 @@ const areas = [
       workflows.
     </p>
   </header>
-
-  <p class="draft-note" role="note">
-    Draft: this page is only visible in local development until the offer is decided.
-  </p>
 
   <section aria-labelledby="areas">
     <h2 id="areas">Where I can help</h2>
@@ -129,16 +117,6 @@ const areas = [
 
   .contact {
     font-size: 1.1rem;
-  }
-
-  .draft-note {
-    max-width: 720px;
-    margin: -1.5rem 0 3rem;
-    padding: 0.75rem 1rem;
-    border: 1px dashed var(--text-3);
-    border-radius: 6px;
-    color: var(--text-3);
-    font-size: 0.95rem;
   }
 
   @media (max-width: 768px) {
