@@ -1,0 +1,149 @@
+---
+// DRAFT. The offer isn't decided yet, so this page is built only by `npm run dev`, and the
+// production build leaves it out. Once the copy is final, set CONSULTING_READY in
+// src/lib/content.ts. (The [...index] file name is what lets this route produce no page.)
+import Base from '../../layouts/Base.astro';
+import { cv } from '../../lib/cv';
+import { showConsulting } from '../../lib/content';
+
+export function getStaticPaths() {
+  return showConsulting ? [{ params: { index: undefined } }] : [];
+}
+
+const linkedin = cv.basics.links.find((link) => link.label === 'LinkedIn');
+
+// Draft areas, each drawn from work already on the CV. Rewrite or replace freely.
+const areas = [
+  {
+    title: 'AI and LLM evaluation',
+    body: "Find out whether your model, agent or classifier actually works. I build ground-truth sets, benchmarks and launch checks that measure precision and recall, so you're deciding from evidence.",
+  },
+  {
+    title: 'AI-native engineering',
+    body: 'Bring coding agents, automated code review and AI tooling into how your team ships, with measurement that shows what it changes.',
+  },
+  {
+    title: 'Experiments and causal inference',
+    body: "Design A/B tests and pilots that are sized to detect what matters, and measure incrementality when a clean trial isn't possible.",
+  },
+  {
+    title: 'Data and ML systems',
+    body: 'Turn a promising analysis into a pipeline that runs every day: data pipelines, ML training workflows and data provenance.',
+  },
+  {
+    title: 'Resume reviews and mock interviews',
+    body: 'For data scientists and ML engineers going after their next role: a detailed review of your resume, and mock interviews with specific, honest feedback, covering programming puzzles, SQL and data manipulation, ML system design, and AI engineering.',
+  },
+];
+---
+
+<Base title="Consulting · Mike Beaumier" description="Data science and AI consulting with Mike Beaumier.">
+  <header class="page-header">
+    <h1>Consulting</h1>
+    <p>
+      I help teams scope hard problems into concrete, validated, measured, and automated
+      workflows.
+    </p>
+  </header>
+
+  <p class="draft-note" role="note">
+    Draft: this page is only visible in local development until the offer is decided.
+  </p>
+
+  <section aria-labelledby="areas">
+    <h2 id="areas">Where I can help</h2>
+    <ul class="areas">
+      {
+        areas.map((area) => (
+          <li>
+            <h3>{area.title}</h3>
+            <p>{area.body}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="formats">
+    <h2 id="formats">How we can work together</h2>
+    <div class="prose">
+      <p>
+        <strong>Advising.</strong> Scoping a problem, reviewing an approach, or a second opinion
+        before you commit.
+      </p>
+      <p>
+        <strong>Hands-on builds.</strong> I design and build the thing with your team, and leave it
+        documented and running.
+      </p>
+      <p>
+        <strong>Mentoring.</strong> Ongoing support for data scientists and ML engineers.
+      </p>
+    </div>
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Get in touch</h2>
+    <p class="contact">
+      {
+        cv.basics.email ? (
+          <a href={`mailto:${cv.basics.email}`} class="link">{cv.basics.email}</a>
+        ) : (
+          linkedin && (
+            <a href={linkedin.url} class="link">Message me on LinkedIn</a>
+          )
+        )
+      }
+    </p>
+  </section>
+</Base>
+
+<style>
+  section + section {
+    margin-top: 4rem;
+  }
+
+  h2 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.75rem;
+  }
+
+  .areas {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 4rem;
+    max-width: 960px;
+  }
+
+  .areas h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .areas p {
+    color: var(--text-2);
+  }
+
+  .contact {
+    font-size: 1.1rem;
+  }
+
+  .draft-note {
+    max-width: 720px;
+    margin: -1.5rem 0 3rem;
+    padding: 0.75rem 1rem;
+    border: 1px dashed var(--text-3);
+    border-radius: 6px;
+    color: var(--text-3);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .areas {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

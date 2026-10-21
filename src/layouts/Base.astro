@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { cv } from '../lib/cv';
+import { getPosts, showConsulting } from '../lib/content';
 
 interface Props {
   title: string;
@@ -9,11 +10,19 @@ interface Props {
 
 const { title, description = cv.basics.headline } = Astro.props;
 
+// Blog shows up in the nav once there is at least one published post
+const hasPosts = (await getPosts()).length > 0;
+
 const nav = [
   { href: '/', label: 'Home' },
+  { href: '/projects/', label: 'Projects' },
+  hasPosts && { href: '/blog/', label: 'Blog' },
+  showConsulting && { href: '/consulting/', label: 'Consulting' },
   { href: '/cv/', label: 'CV' },
-];
+].filter((item) => item !== false);
+
 const current = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? current === '/' : current.startsWith(href));
 ---
 
 <!DOCTYPE html>
@@ -24,6 +33,9 @@ const current = Astro.url.pathname;
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,7 +51,7 @@ const current = Astro.url.pathname;
           {
             nav.map((item) => (
               <li>
-                <a href={item.href} aria-current={current === item.href ? 'page' : undefined}>
+                <a href={item.href} aria-current={isCurrent(item.href) ? 'page' : undefined}>
                   {item.label}
                 </a>
               </li>

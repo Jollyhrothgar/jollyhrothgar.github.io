@@ -1,0 +1,53 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { getProjects, hasWriteUp } from '../../lib/content';
+
+// A page only for projects that have a write-up below their frontmatter
+export async function getStaticPaths() {
+  const projects = await getProjects();
+  return projects
+    .filter(hasWriteUp)
+    .map((project) => ({ params: { id: project.id }, props: { project } }));
+}
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, description, url, repo } = project.data;
+const { Content } = await render(project);
+---
+
+<Base title={`${title} · Mike Beaumier`} description={description}>
+  <article>
+    <header class="page-header">
+      <h1>{title}</h1>
+      <p>{description}</p>
+      <p class="links">
+        <a href={url} class="link">Visit</a>
+        {repo && <a href={repo} class="link">Source</a>}
+      </p>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <p class="back"><a href="/projects/" class="link">All projects</a></p>
+</Base>
+
+<style>
+  .page-header .links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .back {
+    margin-top: 4rem;
+  }
+</style>
