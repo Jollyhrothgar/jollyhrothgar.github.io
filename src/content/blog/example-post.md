@@ -2,6 +2,7 @@
 title: Example post
 description: A draft that shows how a post is written and what Markdown renders as. It never appears on the live site.
 date: 2026-10-21
+tags: ["Meta"]
 draft: true
 ---
 
