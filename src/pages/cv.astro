@@ -1,0 +1,404 @@
+---
+import Base from '../layouts/Base.astro';
+import { cv, formatRange, formatYears } from '../lib/cv';
+
+const { basics } = cv;
+const work = cv.experience.filter((entry) => entry.kind === 'work');
+const other = cv.experience.filter((entry) => entry.kind !== 'work');
+const publications = cv.publications.filter((pub) => pub.selected);
+const inspire = basics.links.find((link) => link.label === 'INSPIRE-HEP');
+---
+
+<Base title="CV · Mike Beaumier" description={`CV of ${basics.name}. ${basics.headline}`}>
+  <div class="cv">
+  <header class="cv-header">
+    <div>
+      <h1>{basics.name}</h1>
+      <p class="headline">{basics.headline}</p>
+      <p class="contact">
+        {basics.location && <span>{basics.location}</span>}
+        {basics.email && <a href={`mailto:${basics.email}`}>{basics.email}</a>}
+        {basics.links.map((link) => <a href={link.url}>{link.label}</a>)}
+      </p>
+    </div>
+    <button type="button" class="print" onclick="window.print()">Save as PDF</button>
+  </header>
+
+  <section aria-labelledby="experience">
+    <h2 id="experience">Experience</h2>
+    {
+      work.map((entry) => (
+        <article class="org">
+          <header class="org-head">
+            <h3>{entry.organization}</h3>
+            {entry.location && <span class="meta">{entry.location}</span>}
+          </header>
+          {entry.roles.map((role) => (
+            <div class="role">
+              <div class="role-head">
+                <span class="role-title">{role.title}</span>
+                <span class="meta">{formatRange(role.start, role.end)}</span>
+              </div>
+              {role.summary && <p class="summary">{role.summary}</p>}
+              {role.highlights.length > 0 && (
+                <ul>
+                  {role.highlights.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {role.projects.map((project) => (
+                <div class="project">
+                  <h4>
+                    {project.name}
+                    {project.year && <span class="meta">{project.year}</span>}
+                  </h4>
+                  {project.summary && <p class="summary">{project.summary}</p>}
+                  <ul>
+                    {project.highlights.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ))}
+        </article>
+      ))
+    }
+  </section>
+
+  {
+    publications.length > 0 && (
+      <section aria-labelledby="publications">
+        <h2 id="publications">Publications</h2>
+        <ul class="plain">
+          {publications.map((pub) => (
+            <li class="pub">
+              <p class="pub-title">
+                {pub.url ? <a href={pub.url}>{pub.title}</a> : pub.title}
+              </p>
+              <p class="meta">
+                {[
+                  pub.collaboration &&
+                    `${pub.collaboration} Collaboration${pub.authorCount ? `, ${pub.authorCount} authors` : ''}`,
+                  pub.venue,
+                  pub.year,
+                ]
+                  .filter(Boolean)
+                  .join(' · ')}
+              </p>
+              {pub.contribution && <p class="summary">{pub.contribution}</p>}
+            </li>
+          ))}
+        </ul>
+        {inspire && (
+          <p class="more">
+            Full publication record on <a href={inspire.url}>INSPIRE-HEP</a>.
+          </p>
+        )}
+      </section>
+    )
+  }
+
+  <section aria-labelledby="education">
+    <h2 id="education">Education</h2>
+    <ul class="plain">
+      {
+        cv.education.map((degree) => (
+          <li class="degree">
+            <div class="role-head">
+              <span class="role-title">{degree.degree}</span>
+              <span class="meta">{formatYears(degree.start, degree.end)}</span>
+            </div>
+            <p>{degree.institution}</p>
+            {degree.note && <p class="summary">{degree.note}</p>}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="other">
+    <h2 id="other">Research, fellowships and volunteering</h2>
+    {
+      other.map((entry) => (
+        <article class="org">
+          {entry.roles.map((role) => (
+            <div class="role">
+              <div class="role-head">
+                <span class="role-title">
+                  {role.title}, {entry.organization}
+                </span>
+                <span class="meta">{formatYears(role.start, role.end)}</span>
+              </div>
+              {role.summary && <p class="summary">{role.summary}</p>}
+              <ul>
+                {role.highlights.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </article>
+      ))
+    }
+  </section>
+
+  <section aria-labelledby="skills">
+    <h2 id="skills">Skills</h2>
+    <dl class="skills">
+      {
+        cv.skills.map((group) => (
+          <div>
+            <dt>{group.group}</dt>
+            <dd>{group.items.join(' · ')}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </section>
+  </div>
+</Base>
+
+<style>
+  .cv {
+    max-width: 780px;
+  }
+
+  .cv-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .headline {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.25rem;
+    color: var(--text-3);
+  }
+
+  .contact a,
+  .pub-title a,
+  .more a {
+    color: inherit;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 3px;
+  }
+
+  .contact a:hover,
+  .pub-title a:hover,
+  .more a:hover {
+    text-decoration-color: currentColor;
+  }
+
+  .print {
+    flex-shrink: 0;
+    font: inherit;
+    font-weight: 500;
+    color: var(--text);
+    background: none;
+    border: 1px solid var(--text);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+
+  .print:hover {
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  section + section {
+    margin-top: 3.5rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 1.75rem;
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .org + .org {
+    margin-top: 2.5rem;
+  }
+
+  .org-head,
+  .role-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .org-head {
+    margin-bottom: 1rem;
+  }
+
+  .role + .role {
+    margin-top: 2rem;
+  }
+
+  .role-title {
+    font-weight: 600;
+  }
+
+  .meta {
+    color: var(--text-3);
+    font-size: 0.9em;
+    font-weight: 400;
+    font-family: var(--sans);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .summary {
+    color: var(--text-2);
+    margin-top: 0.35rem;
+  }
+
+  ul {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+    color: var(--text-2);
+  }
+
+  li + li {
+    margin-top: 0.35rem;
+  }
+
+  .project {
+    margin-top: 1.25rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--rule);
+  }
+
+  .project h4 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  ul.plain {
+    list-style: none;
+    padding: 0;
+    color: var(--text);
+  }
+
+  ul.plain > li + li {
+    margin-top: 1.25rem;
+  }
+
+  .pub-title {
+    font-weight: 600;
+  }
+
+  .more {
+    margin-top: 1.25rem;
+    color: var(--text-3);
+  }
+
+  .skills div + div {
+    margin-top: 1rem;
+  }
+
+  .skills dt {
+    font-weight: 600;
+  }
+
+  .skills dd {
+    color: var(--text-2);
+  }
+
+  @media screen and (max-width: 768px) {
+    .cv-header {
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .org-head,
+    .role-head,
+    .project h4 {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  @media print {
+    .cv {
+      max-width: none;
+      font-size: 10pt;
+      line-height: 1.4;
+    }
+
+    .print {
+      display: none;
+    }
+
+    .cv-header {
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 24pt;
+    }
+
+    h2 {
+      font-size: 14pt;
+      margin-bottom: 0.75rem;
+    }
+
+    h3 {
+      font-size: 12pt;
+    }
+
+    section + section {
+      margin-top: 1.5rem;
+    }
+
+    .org + .org,
+    .role + .role {
+      margin-top: 1rem;
+    }
+
+    .project,
+    .degree,
+    .pub,
+    .skills div,
+    .role-head,
+    .org-head {
+      break-inside: avoid;
+    }
+
+    h2,
+    .org-head {
+      break-after: avoid;
+    }
+  }
+</style>

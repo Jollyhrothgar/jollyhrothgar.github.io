@@ -1,38 +1,95 @@
 ---
 import Base from '../layouts/Base.astro';
 import projects from '../data/projects.json';
+import { cv, formatYears } from '../lib/cv';
+
+// Each employer once, with the most recent title and the full span of years there
+const jobs = cv.experience
+  .filter((entry) => entry.kind === 'work')
+  .map((entry) => {
+    const latest = entry.roles[0];
+    const earliest = entry.roles[entry.roles.length - 1];
+    return {
+      organization: entry.organization,
+      title: latest.title,
+      years: formatYears(earliest.start, latest.end),
+    };
+  });
 ---
 
-<Base title="Mike's Projects">
-  <header>
-    <h1>Projects</h1>
-    <p class="tagline">Things I've built</p>
-  </header>
+<Base title="Mike Beaumier">
+  <section class="intro">
+    <div class="intro-text">
+      <h1>Mike Beaumier</h1>
+      <p class="lead">{cv.basics.headline}</p>
+      <p>
+        I build machine learning and LLM systems, and the measurement that tells you whether
+        they work.
+      </p>
+      <p>
+        I'm a founding staff data scientist at Delphos Labs, an AI security startup. Before that
+        I spent seven years at Google, in Ads Safety and in the sales organization, and worked on
+        in-car machine learning at Mercedes-Benz R&D. My PhD is in experimental particle physics,
+        on the PHENIX experiment at Brookhaven National Laboratory.
+      </p>
+      <p>
+        Outside work I play banjo in The Passing Fancies, make pizza, and build small web apps.
+        A few of them are below.
+      </p>
+      <p class="actions">
+        <a href="/cv/" class="link">Read my CV</a>
+      </p>
+    </div>
+    <img src="/Mike.JPG" alt="Mike in a wizard costume, playing the banjo" />
+  </section>
 
-  <div class="main-content">
+  <section class="jobs" aria-labelledby="jobs-heading">
+    <h2 id="jobs-heading">Where I've worked</h2>
+    <ul>
+      {
+        jobs.map((job) => (
+          <li>
+            <span class="org">{job.organization}</span>
+            <span class="title">{job.title}</span>
+            <span class="years">{job.years}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+
+  <section aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Things I've built</h2>
     <div class="projects">
       {
         projects.map((project) => (
           <a href={project.url} class="project">
-            <h2>{project.title}</h2>
+            <h3>{project.title}</h3>
             <p>{project.description}</p>
           </a>
         ))
       }
     </div>
-
-    <aside class="bio-card">
-      <img src="/Mike.JPG" alt="Mike" />
-      <h3>Mike</h3>
-      <p>Huge nerd, banjo player, data scientist, physicist, pizza maker & eater.</p>
-      <a href="https://github.com/Jollyhrothgar">GitHub</a>
-    </aside>
-  </div>
+  </section>
 </Base>
 
 <style>
-  header {
-    margin-bottom: 4rem;
+  section + section {
+    margin-top: 5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 2rem;
+  }
+
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 4rem;
+    align-items: start;
   }
 
   h1 {
@@ -40,26 +97,71 @@ import projects from '../data/projects.json';
     font-weight: 900;
     line-height: 1.1;
     letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
-  .tagline {
-    font-size: 1.1rem;
-    color: #666;
-    font-weight: 400;
+  .intro-text p {
+    color: var(--text-2);
+    font-size: 1.05rem;
+    max-width: 580px;
+    margin-bottom: 1.25rem;
   }
 
-  .main-content {
+  .intro-text .lead {
+    color: var(--text);
+    font-size: 1.3rem;
+    line-height: 1.45;
+    margin-bottom: 2rem;
+  }
+
+  .intro-text .actions {
+    margin-top: 2rem;
+  }
+
+  .intro img {
+    width: 100%;
+    aspect-ratio: 0.618;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: grayscale(20%);
+  }
+
+  .jobs ul {
+    list-style: none;
+    max-width: 760px;
+  }
+
+  .jobs li {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 4rem;
-    align-items: start;
+    grid-template-columns: 1fr 1fr 7.5rem;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .jobs li:last-child {
+    border-bottom: none;
+  }
+
+  .jobs .org {
+    font-weight: 600;
+  }
+
+  .jobs .title {
+    color: var(--text-2);
+  }
+
+  .jobs .years {
+    color: var(--text-3);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+    text-align: right;
   }
 
   .projects {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 4rem;
   }
 
   .project {
@@ -67,79 +169,53 @@ import projects from '../data/projects.json';
     color: inherit;
     display: block;
     padding-bottom: 2.5rem;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--rule);
     transition: opacity 0.2s;
-  }
-
-  .project:last-child {
-    border-bottom: none;
   }
 
   .project:hover {
     opacity: 0.7;
   }
 
-  .project h2 {
-    font-size: 1.75rem;
+  .project h3 {
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
     letter-spacing: -0.01em;
   }
 
   .project p {
-    color: #444;
-    font-size: 1rem;
-    max-width: 500px;
-  }
-
-  .bio-card {
-    position: sticky;
-    top: 2rem;
-  }
-
-  .bio-card img {
-    width: 100%;
-    aspect-ratio: 0.618;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    filter: grayscale(20%);
-  }
-
-  .bio-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.75rem;
-  }
-
-  .bio-card p {
-    color: #444;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .bio-card a {
-    color: #1a1a1a;
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 2px solid #1a1a1a;
-    transition: border-color 0.2s;
-  }
-
-  .bio-card a:hover {
-    border-color: #888;
+    color: var(--text-2);
   }
 
   @media (max-width: 768px) {
-    .main-content {
+    .intro {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
 
-    .bio-card {
+    .intro img {
       order: -1;
-      position: static;
-      max-width: 280px;
+      max-width: 240px;
+    }
+
+    .jobs li {
+      grid-template-columns: 1fr auto;
+      gap: 0.25rem 1rem;
+    }
+
+    .jobs .title {
+      grid-column: 1;
+      grid-row: 2;
+    }
+
+    .jobs .years {
+      grid-row: 1;
+      grid-column: 2;
+    }
+
+    .projects {
+      grid-template-columns: 1fr;
     }
   }
 </style>
