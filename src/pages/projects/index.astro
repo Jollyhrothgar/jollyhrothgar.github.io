@@ -1,8 +1,13 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { getProjects, hasWriteUp } from '../../lib/content';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { SECTIONS, getProjects } from '../../lib/content';
 
 const projects = await getProjects();
+const sections = SECTIONS.map((section) => ({
+  ...section,
+  projects: projects.filter((project) => project.data.section === section.id),
+})).filter((section) => section.projects.length > 0);
 ---
 
 <Base title="Projects · Mike Beaumier" description="Things Mike Beaumier has built.">
@@ -11,92 +16,48 @@ const projects = await getProjects();
     <p>Things I've built.</p>
   </header>
 
-  <ul class="projects">
-    {
-      projects.map((project) => {
-        const writeUp = hasWriteUp(project) ? `/projects/${project.id}/` : undefined;
-        return (
-          <li class="project">
-            <h2>
-              <a href={writeUp ?? project.data.url}>{project.data.title}</a>
-            </h2>
-            <p>{project.data.description}</p>
-            <ul class="links">
-              {writeUp && (
-                <li>
-                  <a href={writeUp}>Write-up</a>
-                </li>
-              )}
-              <li>
-                <a href={project.data.url}>Visit</a>
-              </li>
-              {project.data.repo && (
-                <li>
-                  <a href={project.data.repo}>Source</a>
-                </li>
-              )}
-            </ul>
-          </li>
-        );
-      })
-    }
-  </ul>
+  {
+    sections.map((section) => (
+      <section aria-label={section.title ?? 'Featured'}>
+        {section.title && <h2>{section.title}</h2>}
+        <div class:list={['grid', { wide: section.wide }]}>
+          {section.projects.map((project) => (
+            <ProjectCard project={project} wide={section.wide} />
+          ))}
+        </div>
+      </section>
+    ))
+  }
 </Base>
 
 <style>
-  .projects {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem 4rem;
-  }
-
-  .project {
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--rule);
+  section + section {
+    margin-top: 5rem;
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     font-weight: 700;
     letter-spacing: -0.01em;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
   }
 
-  h2 a {
-    color: inherit;
-    text-decoration: none;
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem 3rem;
   }
 
-  h2 a:hover {
-    opacity: 0.7;
-  }
-
-  p {
-    color: var(--text-2);
-  }
-
-  .links {
-    list-style: none;
-    display: flex;
-    gap: 1.25rem;
-    margin-top: 1rem;
-    font-size: 0.95rem;
-  }
-
-  .links a {
-    color: var(--text-3);
-    font-weight: 500;
-    text-decoration: none;
-  }
-
-  .links a:hover {
-    color: var(--text);
+  .grid.wide {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   @media (max-width: 768px) {
-    .projects {
-      grid-template-columns: 1fr;
+    .grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 3rem;
     }
   }
 </style>

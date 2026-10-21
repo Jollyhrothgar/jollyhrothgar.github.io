@@ -1,0 +1,158 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { hasWriteUp } from '../lib/content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  // Picture beside the text rather than above it
+  wide?: boolean;
+}
+
+const { project, wide = false } = Astro.props;
+const { title, description, links, imageAlt } = project.data;
+
+// The card's picture is src/assets/projects/<project id>.svg, .png or .jpg. SVGs are inlined so
+// their text uses the site's fonts.
+const svgs = import.meta.glob<string>('../assets/projects/*.svg', {
+  query: '?raw',
+  import: 'default',
+  eager: true,
+});
+const rasters = import.meta.glob<ImageMetadata>('../assets/projects/*.{png,jpg}', {
+  import: 'default',
+  eager: true,
+});
+const find = <T,>(files: Record<string, T>) =>
+  Object.entries(files).find(([path]) => path.replace(/^.*\/|\.\w+$/g, '') === project.id)?.[1];
+const svg = find(svgs);
+const raster = find(rasters);
+
+const writeUp = hasWriteUp(project) ? `/projects/${project.id}/` : undefined;
+const allLinks = writeUp ? [{ label: 'Write-up', url: writeUp }, ...links] : links;
+const main = allLinks[0].url;
+---
+
+<article class:list={['card', { wide }]}>
+  {
+    (svg || raster) && (
+      <div class:list={['visual', project.id]}>
+        {svg ? (
+          <Fragment set:html={svg} />
+        ) : (
+          raster && (
+            <Image
+              src={raster}
+              alt={imageAlt ?? ''}
+              widths={[480, 800, 1200]}
+              sizes={wide ? '(max-width: 768px) 100vw, 640px' : '(max-width: 768px) 100vw, 520px'}
+            />
+          )
+        )}
+      </div>
+    )
+  }
+  <div class="body">
+    <h3><a href={main}>{title}</a></h3>
+    <p>{description}</p>
+    <ul class="links">
+      {
+        allLinks.map((link) => (
+          <li>
+            <a href={link.url}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</article>
+
+<style>
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .visual {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+  }
+
+  .visual :global(svg),
+  .visual :global(img) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Screenshots read best from the top */
+  .bluegrass-book :global(img) {
+    object-position: top;
+  }
+
+  h3 {
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h3 a:hover {
+    opacity: 0.7;
+  }
+
+  p {
+    color: var(--text-2);
+  }
+
+  .links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+    margin-top: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .links a {
+    color: var(--text-3);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .links a:hover {
+    color: var(--text);
+  }
+
+  .wide {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .wide h3 {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .wide {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .wide h3 {
+      font-size: 1.6rem;
+    }
+  }
+</style>

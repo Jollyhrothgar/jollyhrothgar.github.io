@@ -88,6 +88,15 @@ export function seriesPosition(post: Post, posts: Post[]): SeriesPosition | unde
   };
 }
 
+// The projects page's sections, in page order. Wide sections show each card with its picture
+// beside the text rather than above it.
+export const SECTIONS = [
+  { id: 'featured', title: undefined, wide: true },
+  { id: 'ai', title: 'AI engineering', wide: false },
+  { id: 'tools', title: 'Tools for life', wide: false },
+  { id: 'physics', title: 'From the physics days', wide: true },
+] as const;
+
 export async function getProjects(): Promise<CollectionEntry<'projects'>[]> {
   const projects = await getCollection('projects');
   return projects.sort((a, b) => a.data.order - b.data.order);

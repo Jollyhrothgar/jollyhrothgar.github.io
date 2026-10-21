@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="A chart of regular tax against AMT as ISO spread grows, showing where AMT starts">
+<rect x="70" y="50" width="142.3" height="390" fill="#ececec"/>
+<line x1="70" y1="440" x2="760" y2="440" stroke="#1a1a1a" stroke-width="1.5"/>
+<line x1="70" y1="440" x2="70" y2="50" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="70.0" y="466.0" font-size="17.5" fill="#8a8a8a" text-anchor="middle" font-weight="400">$0k</text>
+<text x="242.5" y="466.0" font-size="17.5" fill="#8a8a8a" text-anchor="middle" font-weight="400">$20k</text>
+<text x="415.0" y="466.0" font-size="17.5" fill="#8a8a8a" text-anchor="middle" font-weight="400">$40k</text>
+<text x="587.5" y="466.0" font-size="17.5" fill="#8a8a8a" text-anchor="middle" font-weight="400">$60k</text>
+<text x="760.0" y="466.0" font-size="17.5" fill="#8a8a8a" text-anchor="middle" font-weight="400">$80k</text>
+<text x="60.0" y="445.0" font-size="17.5" fill="#8a8a8a" text-anchor="end" font-weight="400">$20k</text>
+<text x="60.0" y="347.5" font-size="17.5" fill="#8a8a8a" text-anchor="end" font-weight="400">$30k</text>
+<text x="60.0" y="250.0" font-size="17.5" fill="#8a8a8a" text-anchor="end" font-weight="400">$40k</text>
+<text x="60.0" y="152.5" font-size="17.5" fill="#8a8a8a" text-anchor="end" font-weight="400">$50k</text>
+<text x="60.0" y="55.0" font-size="17.5" fill="#8a8a8a" text-anchor="end" font-weight="400">$60k</text>
+<line x1="70" y1="309.5" x2="760" y2="309.5" stroke="#8a8a8a" stroke-width="2.5" stroke-dasharray="8 6"/>
+<text x="760.0" y="335.5" font-size="18.8" fill="#8a8a8a" text-anchor="end" font-weight="500">Regular tax</text>
+<path d="M70.0,351.3 L113.1,338.7 L156.2,326.0 L199.4,313.3 L242.5,300.6 L285.6,288.0 L328.8,275.3 L371.9,262.6 L415.0,249.9 L458.1,237.3 L501.2,224.6 L544.4,211.9 L587.5,199.2 L630.6,186.6 L673.8,173.9 L716.9,161.2 L760.0,148.5" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+<text x="742.8" y="132.5" font-size="18.8" fill="#1a1a1a" text-anchor="end" font-weight="600">Tentative minimum tax</text>
+<circle cx="212.3" cy="309.5" r="6" fill="#1a1a1a"/>
+<text x="141.1" y="84.0" font-size="18.8" fill="#1a1a1a" text-anchor="middle" font-weight="600">No AMT</text>
+<text x="141.1" y="104.0" font-size="17.5" fill="#8a8a8a" text-anchor="middle" font-weight="400">up to $16.5k</text>
+<text x="415.0" y="492.0" font-size="17.5" fill="#8a8a8a" text-anchor="middle" font-weight="400">ISO spread exercised</text>
+</svg>

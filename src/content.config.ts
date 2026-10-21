@@ -26,16 +26,21 @@ const blog = defineCollection({
 });
 
 // One Markdown file per project in src/content/projects/. Anything written below the
-// frontmatter becomes a write-up page at /projects/<file name>/.
+// frontmatter becomes a write-up page at /projects/<file name>/. The card's picture is
+// src/assets/projects/<file name>.svg, .png or .jpg.
 const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    url: z.url(),
-    repo: z.url().optional(),
-    // Lower numbers come first
+    // Which part of the projects page the card goes in; see SECTIONS in src/lib/content.ts
+    section: z.enum(['featured', 'ai', 'tools', 'physics']),
+    // Lower numbers come first within a section
     order: z.number(),
+    // The first link is the main one: the card's title links to it, unless there's a write-up
+    links: z.array(z.object({ label: z.string(), url: z.string() })).min(1),
+    // Alt text for a .png or .jpg picture. SVG pictures carry their own.
+    imageAlt: z.string().optional(),
   }),
 });
 

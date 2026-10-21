@@ -32,8 +32,12 @@ npm run check    # type check
   `public/og.png`, a 1200×630 card rendered once from HTML with headless Chrome.
 - `src/components/sims/`: interactive components for MDX posts. `RandomWalk.astro` is the
   template: a canvas custom element that animates only while on screen.
-- `src/content/projects/`: one Markdown file per project. Text below the frontmatter becomes a
-  write-up page at `/projects/<file name>/`.
+- `src/content/projects/`: one Markdown file per project, with its `section` (see `SECTIONS` in
+  `src/lib/content.ts`) and `links`. Text below the frontmatter becomes a write-up page at
+  `/projects/<file name>/`.
+- `src/assets/projects/<file name>.svg|png|jpg`: each project card's picture, made from
+  something real in that repo (its data, its algorithm's output, its art). SVGs are 800×500 and
+  inlined, so their text uses the site fonts.
 - `src/content.config.ts`: the frontmatter each post and project must have
 - `src/lib/content.ts`: post and project helpers
 - `src/data/cv.json`: the public CV, exported from the private resume repo. Its format is
@@ -52,12 +56,16 @@ Prefer simple, clear, modern design.
 
 ## List of Projects
 
-`src/content/projects/` must always be kept up to date with the GitHub Pages sites Mike
-maintains. His GitHub profile is https://github.com/Jollyhrothgar/.
+The projects page is a curated list, not every public repo on
+https://github.com/Jollyhrothgar/. Mike chose it in October 2026:
 
-- https://github.com/Jollyhrothgar/github-fitness
-- https://github.com/Jollyhrothgar/Bluegrass-Songbook (live at https://bluegrassbook.com)
-- https://github.com/Jollyhrothgar/The_Passing_Fancies
-- https://github.com/Jollyhrothgar/wood_cut
-- https://github.com/Jollyhrothgar/Banjo-Tabinator
-- https://github.com/Jollyhrothgar/baby-tracker (public on purpose)
+- Featured: Bluegrass Book (https://bluegrassbook.com)
+- AI engineering: the arch, session and vault Claude Code plugins; Recursive Language Models;
+  Data Takedown; Track Splitter
+- Tools for life: GitHub Fitness, Baby Tracker (public on purpose), Wood Cut, the equity tax
+  calculator (`financial_calculator`), meshfix
+- From the physics days: PhD research (`W_Analysis`, `UCR_Thesis_Template`, the thesis)
+
+Left off on purpose: Banjo Tabinator and the TablEdit tools (Bluegrass Book does all of it), The
+Passing Fancies (linked from the home page instead), the Lodi Fairgrounds prototype, and
+mike_chronicles. Mic Plot is waiting on fixes from a code and physics review before it's added.

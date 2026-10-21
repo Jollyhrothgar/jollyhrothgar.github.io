@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="A three-day workout plan with sets checked off">
+<text x="34.0" y="62.0" font-size="32.5" fill="#1a1a1a" text-anchor="start" font-weight="700" font-family="Playfair Display, Georgia, serif">Day A</text>
+<text x="34.0" y="88.0" font-size="18.8" fill="#8a8a8a" text-anchor="start" font-weight="500">Foundation &amp; Power</text>
+<text x="34.0" y="136.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Trap bar deadlift</text>
+<rect x="34" y="148" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="60" y="148" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="86" y="148" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="34.0" y="204.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Bench press</text>
+<rect x="34" y="216" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="60" y="216" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="86" y="216" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="34.0" y="272.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Pullups</text>
+<rect x="34" y="284" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="60" y="284" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="86" y="284" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="34.0" y="340.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Goblet squat</text>
+<rect x="34" y="352" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="60" y="352" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="86" y="352" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="34.0" y="408.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Ab wheel rollout</text>
+<rect x="34" y="420" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="60" y="420" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="86" y="420" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="290.0" y="62.0" font-size="32.5" fill="#1a1a1a" text-anchor="start" font-weight="700" font-family="Playfair Display, Georgia, serif">Day B</text>
+<text x="290.0" y="88.0" font-size="18.8" fill="#8a8a8a" text-anchor="start" font-weight="500">Strength &amp; Stability</text>
+<text x="290.0" y="136.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Overhead press</text>
+<rect x="290" y="148" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="316" y="148" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="342" y="148" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="290.0" y="204.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Romanian deadlift</text>
+<rect x="290" y="216" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="316" y="216" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="342" y="216" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="290.0" y="272.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Cable row</text>
+<rect x="290" y="284" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="316" y="284" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="342" y="284" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="290.0" y="340.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Bulgarian split squat</text>
+<rect x="290" y="352" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="316" y="352" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="342" y="352" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="290.0" y="408.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Hanging leg raise</text>
+<rect x="290" y="420" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="316" y="420" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="342" y="420" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="546.0" y="62.0" font-size="32.5" fill="#1a1a1a" text-anchor="start" font-weight="700" font-family="Playfair Display, Georgia, serif">Day C</text>
+<text x="546.0" y="88.0" font-size="18.8" fill="#8a8a8a" text-anchor="start" font-weight="500">Hypertrophy &amp; Carry</text>
+<text x="546.0" y="136.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Leg press</text>
+<rect x="546" y="148" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="572" y="148" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="598" y="148" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="546.0" y="204.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Dips</text>
+<rect x="546" y="216" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="572" y="216" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="598" y="216" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="546.0" y="272.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Lat pulldown</text>
+<rect x="546" y="284" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="572" y="284" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="598" y="284" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="546.0" y="340.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Farmers walk</text>
+<rect x="546" y="352" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="572" y="352" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="598" y="352" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+<text x="546.0" y="408.0" font-size="20.0" fill="#1a1a1a" text-anchor="start" font-weight="500">Face pulls</text>
+<rect x="546" y="420" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="572" y="420" width="20" height="20" rx="3" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1.5"/>
+<rect x="598" y="420" width="20" height="20" rx="3" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+</svg>

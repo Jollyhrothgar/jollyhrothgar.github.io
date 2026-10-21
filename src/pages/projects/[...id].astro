@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, description, url, repo } = project.data;
+const { title, description, links } = project.data;
 const { Content } = await render(project);
 ---
 
@@ -26,8 +26,13 @@ const { Content } = await render(project);
       <h1>{title}</h1>
       <p>{description}</p>
       <p class="links">
-        <a href={url} class="link">Visit</a>
-        {repo && <a href={repo} class="link">Source</a>}
+        {
+          links.map((link) => (
+            <a href={link.url} class="link">
+              {link.label}
+            </a>
+          ))
+        }
       </p>
     </header>
 
