@@ -62,10 +62,10 @@ https://github.com/Jollyhrothgar/. Mike chose it in October 2026:
 - Featured: Bluegrass Book (https://bluegrassbook.com)
 - AI engineering: the arch, session, vault and write Claude Code plugins; Recursive Language Models;
   Data Takedown; Track Splitter
-- Tools for life: GitHub Fitness, Baby Tracker (public on purpose), Wood Cut, the equity tax
+- Tools for life: Bluegrass Mic Plot, GitHub Fitness, Baby Tracker (public on purpose), Wood Cut, the equity tax
   calculator (`financial_calculator`), meshfix
 - From the physics days: PhD research (`W_Analysis`, `UCR_Thesis_Template`, the thesis)
 
 Left off on purpose: Banjo Tabinator and the TablEdit tools (Bluegrass Book does all of it), The
 Passing Fancies (linked from the home page instead), the Lodi Fairgrounds prototype, and
-mike_chronicles. Mic Plot is waiting on fixes from a code and physics review before it's added.
+mike_chronicles.
