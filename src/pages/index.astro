@@ -48,7 +48,11 @@ import { cv } from '../lib/cv';
         creation and sharing, all free (for now) and all on-device.
       </p>
     </div>
-    <img src="/Mike.JPG" alt="Mike in a wizard costume, playing the banjo" />
+    <picture>
+      <!-- On phones, a square crop of just the wizard and the banjo -->
+      <source media="(max-width: 768px)" srcset="/Mike-square.jpg" />
+      <img src="/Mike.JPG" alt="Mike in a wizard costume, playing the banjo" />
+    </picture>
   </section>
 </Base>
 
@@ -103,9 +107,15 @@ import { cv } from '../lib/cv';
       gap: 2.5rem;
     }
 
-    .intro img {
+    .intro picture {
       order: -1;
-      max-width: 240px;
+      justify-self: center;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .intro img {
+      aspect-ratio: 1;
     }
   }
 </style>
