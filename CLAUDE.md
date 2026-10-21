@@ -60,7 +60,7 @@ The projects page is a curated list, not every public repo on
 https://github.com/Jollyhrothgar/. Mike chose it in October 2026:
 
 - Featured: Bluegrass Book (https://bluegrassbook.com)
-- AI engineering: the arch, session and vault Claude Code plugins; Recursive Language Models;
+- AI engineering: the arch, session, vault and write Claude Code plugins; Recursive Language Models;
   Data Takedown; Track Splitter
 - Tools for life: GitHub Fitness, Baby Tracker (public on purpose), Wood Cut, the equity tax
   calculator (`financial_calculator`), meshfix

@@ -3,21 +3,24 @@
 <circle cx="70" cy="68" r="6" fill="#555"/>
 <circle cx="90" cy="68" r="6" fill="#555"/>
 <circle cx="110" cy="68" r="6" fill="#555"/>
-<text x="76.0" y="132.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
-<text x="104.0" y="132.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/arch:visualize</text>
-<text x="372.0" y="132.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">explain a codebase’s architecture</text>
-<text x="76.0" y="188.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
-<text x="104.0" y="188.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/session:find</text>
-<text x="372.0" y="188.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">find and resume past sessions</text>
-<text x="76.0" y="244.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
-<text x="104.0" y="244.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/vault:note</text>
-<text x="372.0" y="244.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">capture context on the way out</text>
-<text x="76.0" y="300.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
-<text x="104.0" y="300.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/vault:recall</text>
-<text x="372.0" y="300.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">get it back on the way in</text>
-<text x="76.0" y="356.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
-<text x="104.0" y="356.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/vault:remind</text>
-<text x="372.0" y="356.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">link a reminder to a thread</text>
+<text x="76.0" y="124.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
+<text x="104.0" y="124.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/arch:visualize</text>
+<text x="372.0" y="124.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">explain a codebase’s architecture</text>
+<text x="76.0" y="172.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
+<text x="104.0" y="172.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/session:find</text>
+<text x="372.0" y="172.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">find and resume past sessions</text>
+<text x="76.0" y="220.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
+<text x="104.0" y="220.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/write:check</text>
+<text x="372.0" y="220.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">fix what the reader can’t resolve</text>
+<text x="76.0" y="268.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
+<text x="104.0" y="268.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/vault:note</text>
+<text x="372.0" y="268.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">capture context on the way out</text>
+<text x="76.0" y="316.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
+<text x="104.0" y="316.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/vault:recall</text>
+<text x="372.0" y="316.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">get it back on the way in</text>
+<text x="76.0" y="364.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
+<text x="104.0" y="364.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/vault:remind</text>
+<text x="372.0" y="364.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">link a reminder to a thread</text>
 <text x="76.0" y="412.0" font-size="25.0" fill="#888" text-anchor="start" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">❯</text>
 <text x="104.0" y="412.0" font-size="22.5" fill="#fff" text-anchor="start" font-weight="600" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">/vault:prune</text>
 <text x="372.0" y="412.0" font-size="18.8" fill="#9a9a9a" text-anchor="start" font-weight="400">sweep stale threads</text>
