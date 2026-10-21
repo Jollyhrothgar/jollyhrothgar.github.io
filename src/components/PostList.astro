@@ -1,22 +1,35 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import TagList from './TagList.astro';
-import { formatDate } from '../lib/content';
+import { formatDate, seriesUrl } from '../lib/content';
 
 interface Props {
   posts: CollectionEntry<'blog'>[];
+  // For one series in reading order: show "Part N" in place of the series name
+  numbered?: boolean;
 }
 
-const { posts } = Astro.props;
+const { posts, numbered = false } = Astro.props;
 ---
 
 <ol class="posts">
   {
-    posts.map((post) => (
+    posts.map((post, i) => (
       <li>
-        <time datetime={post.data.date.toISOString().slice(0, 10)}>
-          {formatDate(post.data.date)}
-        </time>
+        <p class="meta">
+          {numbered && <span>Part {i + 1} · </span>}
+          <time datetime={post.data.date.toISOString().slice(0, 10)}>
+            {formatDate(post.data.date)}
+          </time>
+          {!numbered && post.data.series && (
+            <>
+              {' · '}
+              <a href={seriesUrl(post.data.series)} class="series">
+                {post.data.series}
+              </a>
+            </>
+          )}
+        </p>
         <h2>
           <a href={`/blog/${post.id}/`}>{post.data.title}</a>
           {post.data.draft && <span class="draft">Draft</span>}
@@ -39,10 +52,23 @@ const { posts } = Astro.props;
     border-bottom: 1px solid var(--rule);
   }
 
-  time {
+  .meta {
     color: var(--text-3);
     font-size: 0.9rem;
     font-variant-numeric: tabular-nums;
+    margin: 0;
+  }
+
+  .series {
+    color: var(--text-2);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .series:hover {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
 
   h2 {

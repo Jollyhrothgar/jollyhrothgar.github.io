@@ -3,6 +3,7 @@ title: "New Feature Drops"
 description: "Shareable setlists, drag-drop reordering, focus mode, and ideas for more content sources."
 date: 2025-12-31
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
 ---
 
 ## Content Sources

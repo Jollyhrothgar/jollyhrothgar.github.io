@@ -3,6 +3,7 @@ title: "A Week of Polish"
 description: "Collaborative lists, quick controls, covering artists, and making it easier to contribute."
 date: 2026-01-10
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
 ---
 
 ## From Claude

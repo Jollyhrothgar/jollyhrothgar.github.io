@@ -3,6 +3,8 @@ title: "What Is Bluegrass? A Data-Driven Answer"
 description: "How I used MusicBrainz data and bluegrass artist catalogs to mathematically define what makes a song \"bluegrass.\""
 date: 2026-01-03
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
+image: "./grassiness_distribution.png"
 ---
 
 > **Want to explore the data yourself?** Check out the [interactive Jupyter notebook](https://github.com/jollyhrothgar/Bluegrass-Songbook/blob/main/analytics/grassiness_analysis.ipynb) with full visualizations and queries.

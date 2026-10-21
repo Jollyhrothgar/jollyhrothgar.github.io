@@ -1,45 +1,53 @@
 ---
 import Base from '../../layouts/Base.astro';
 import PostList from '../../components/PostList.astro';
-import { getPosts, getTags } from '../../lib/content';
+import { getPosts, getSeries, getTags, seriesUrl, tagUrl } from '../../lib/content';
 
 const posts = await getPosts();
-const tags = getTags(posts);
+const groups = [
+  { label: 'Series', items: getSeries(posts).map((s) => ({ name: s.name, url: seriesUrl(s.name) })) },
+  { label: 'Topics', items: getTags(posts).map((t) => ({ name: t.name, url: tagUrl(t.name) })) },
+].filter((group) => group.items.length > 0);
 ---
 
 <Base title="Blog · Mike Beaumier" description="Writing by Mike Beaumier.">
   <header class="page-header">
     <h1>Blog</h1>
     {
-      tags.length > 0 && (
-        <p class="topics">
-          Topics:{' '}
-          {tags.map((tag, i) => (
+      groups.map((group) => (
+        <p class="groups">
+          {group.label}:{' '}
+          {group.items.map((item, i) => (
             <>
               {i > 0 && ' · '}
-              <a href={`/blog/tags/${tag.slug}/`}>{tag.name}</a>
+              <a href={item.url}>{item.name}</a>
             </>
           ))}
         </p>
-      )
+      ))
     }
+    <p class="groups"><a href="/rss.xml">RSS feed</a></p>
   </header>
 
   {posts.length === 0 ? <p class="empty">Nothing here yet.</p> : <PostList posts={posts} />}
 </Base>
 
 <style>
-  .topics {
+  .groups {
     font-size: 1rem;
   }
 
-  .topics a {
+  .groups + .groups {
+    margin-top: 0.4rem;
+  }
+
+  .groups a {
     color: var(--text);
     text-decoration-color: var(--rule);
     text-underline-offset: 3px;
   }
 
-  .topics a:hover {
+  .groups a:hover {
     text-decoration-color: currentColor;
   }
 

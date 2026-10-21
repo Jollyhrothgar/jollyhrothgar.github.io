@@ -3,6 +3,7 @@ title: "What Did I Build Here Anyway?"
 description: "Summary of features built and roadmap"
 date: 2025-12-28
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
 ---
 
 ## The Human Speaks:

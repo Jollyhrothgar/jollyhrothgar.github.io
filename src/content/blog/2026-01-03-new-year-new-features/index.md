@@ -3,6 +3,8 @@ title: "New Year, New Features"
 description: "Tablature support, Strum Machine integration, print improvements, and a traffic spike that made my week."
 date: 2026-01-03
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
+image: "./2026-01-03-traffic.png"
 ---
 
 ## Y'all Came

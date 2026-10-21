@@ -1,26 +1,46 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
+import { getImage } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import TagList from '../../components/TagList.astro';
-import { formatDate, getPosts } from '../../lib/content';
+import { formatDate, getPosts, seriesPosition } from '../../lib/content';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
-  return posts.map((post) => ({ params: { id: post.id }, props: { post } }));
+  return posts.map((post) => ({
+    params: { id: post.id },
+    props: { post, series: seriesPosition(post, posts) },
+  }));
 }
 
 interface Props {
   post: CollectionEntry<'blog'>;
+  series: ReturnType<typeof seriesPosition>;
 }
 
-const { post } = Astro.props;
-const { title, description, date, updated, draft, tags } = post.data;
+const { post, series } = Astro.props;
+const { title, description, date, updated, draft, tags, image } = post.data;
 const { Content } = await render(post);
+
+// Sharing previews want a JPEG or PNG about 1200px wide
+const shareImage = image && (await getImage({ src: image, width: 1200, format: 'jpg' }));
 ---
 
-<Base title={`${title} · Mike Beaumier`} description={description}>
+<Base
+  title={series ? `${title} · ${series.name} · Mike Beaumier` : `${title} · Mike Beaumier`}
+  description={description}
+  image={shareImage?.src}
+  article={{ published: date, updated }}
+>
   <article>
     <header class="page-header">
+      {
+        series && (
+          <p class="kicker">
+            <a href={series.url}>{series.name}</a> · Part {series.part} of {series.total}
+          </p>
+        )
+      }
       <h1>{title}</h1>
       <p class="meta">
         <time datetime={date.toISOString().slice(0, 10)}>{formatDate(date)}</time>
@@ -35,15 +55,113 @@ const { Content } = await render(post);
     </div>
   </article>
 
+  {
+    series && (
+      <nav class="series-nav" aria-label={series.name}>
+        <p class="series-label">
+          Part {series.part} of {series.total} in{' '}
+          <a href={series.url} class="link">{series.name}</a>
+        </p>
+        <div class="series-links">
+          {series.prev && (
+            <a href={`/blog/${series.prev.id}/`} class="prev">
+              <span>Previous</span>
+              {series.prev.data.title}
+            </a>
+          )}
+          {series.next && (
+            <a href={`/blog/${series.next.id}/`} class="next">
+              <span>Next</span>
+              {series.next.data.title}
+            </a>
+          )}
+        </div>
+      </nav>
+    )
+  }
+
   <p class="back"><a href="/blog/" class="link">All posts</a></p>
 </Base>
 
 <style>
+  .kicker {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-3);
+    margin-bottom: 0.5rem;
+  }
+
+  .kicker a {
+    color: var(--text-2);
+    text-decoration: none;
+  }
+
+  .kicker a:hover {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
   .tags {
     margin-top: 1rem;
   }
 
+  .series-nav {
+    max-width: 720px;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .series-label {
+    color: var(--text-3);
+    margin-bottom: 1.25rem;
+  }
+
+  .series-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .series-links a {
+    display: block;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .series-links a:hover {
+    border-color: var(--text-3);
+  }
+
+  .series-links span {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--text-3);
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .next {
+    grid-column: 2;
+    text-align: right;
+  }
+
   .back {
     margin-top: 4rem;
+  }
+
+  @media (max-width: 768px) {
+    .series-links {
+      grid-template-columns: 1fr;
+    }
+
+    .next {
+      grid-column: 1;
+    }
   }
 </style>

@@ -3,6 +3,7 @@ title: "Welcome to the Dev Blog"
 description: "Introducing the BluegrassBook dev blog where I'll share updates about new features and what's coming next."
 date: 2025-12-28
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
 ---
 
 Hi folks! I'm starting this dev blog to share updates about what I'm building on BluegrassBook.com.

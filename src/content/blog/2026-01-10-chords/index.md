@@ -3,6 +3,7 @@ title: "Chord Progressions"
 description: "Thoughts on building chord progression tools."
 date: 2026-01-10
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
 ---
 
 ## Chord Progressions

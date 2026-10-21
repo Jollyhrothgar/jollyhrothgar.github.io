@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import Base from '../../../layouts/Base.astro';
 import PostList from '../../../components/PostList.astro';
-import { getPosts, getTags, tagSlug, type Tag } from '../../../lib/content';
+import { getPosts, getTags, slugify, type Group } from '../../../lib/content';
 
 export async function getStaticPaths() {
   const posts = await getPosts();
@@ -10,13 +10,13 @@ export async function getStaticPaths() {
     params: { tag: tag.slug },
     props: {
       tag,
-      posts: posts.filter((post) => post.data.tags.some((name) => tagSlug(name) === tag.slug)),
+      posts: posts.filter((post) => post.data.tags.some((name) => slugify(name) === tag.slug)),
     },
   }));
 }
 
 interface Props {
-  tag: Tag;
+  tag: Group;
   posts: CollectionEntry<'blog'>[];
 }
 

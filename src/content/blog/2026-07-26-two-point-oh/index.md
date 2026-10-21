@@ -3,6 +3,8 @@ title: "2.0 — A Bluegrass Book That Acts Like One"
 description: "The index is jam repertoire now. One page per song, chrome that gets out of the way, and a bounty board that knows exactly what's missing."
 date: 2026-07-26
 tags: ["Bluegrass Book"]
+series: "Bluegrass Book dev log"
+image: "./2.0-home.png"
 ---
 
 The site just shipped its largest release. Here's what changed, and why.

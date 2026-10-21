@@ -21,8 +21,15 @@ npm run check    # type check
   text). Page-specific styles live in each page's `<style>`.
 - `src/content/blog/`: one post per `.md` or `.mdx` file, or per folder (`<slug>/index.md` with
   its images beside it, referenced as `./image.png`). Posts carry `tags` (display names); each
-  tag gets a page at `/blog/tags/<slug>/`. `example-post.md` and `example-interactive.mdx` are
-  draft templates. The "Bluegrass Book" posts came from bluegrassbook.com's old dev blog.
+  tag gets a page at `/blog/tags/<slug>/`. A post can also belong to a `series` (posts meant to
+  be read in order), which gets a page at `/blog/series/<slug>/` and adds "Part N of M" and
+  previous/next links to each post. An optional `image` sets the post's share preview.
+  `example-post.md` and `example-interactive.mdx` are draft templates. The "Bluegrass Book dev
+  log" series came from bluegrassbook.com's old dev blog.
+- `src/pages/rss.xml.ts`: the blog's RSS feed (description and link for each post)
+- Sitemap: built by `@astrojs/sitemap` as `sitemap-index.xml`; `public/robots.txt` points to it
+- Share previews: `Base.astro` sets the Open Graph tags. Pages without their own image use
+  `public/og.png`, a 1200×630 card rendered once from HTML with headless Chrome.
 - `src/components/sims/`: interactive components for MDX posts. `RandomWalk.astro` is the
   template: a canvas custom element that animates only while on screen.
 - `src/content/projects/`: one Markdown file per project. Text below the frontmatter becomes a

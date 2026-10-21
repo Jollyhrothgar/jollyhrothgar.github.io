@@ -6,16 +6,23 @@ import { z } from 'astro/zod';
 // hello.md -> /blog/hello/. A post with images can be a folder: hello/index.md plus its images.
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    updated: z.coerce.date().optional(),
-    // Display names, e.g. "Bluegrass Book". Each gets a page at /blog/tags/<slug>/
-    tags: z.array(z.string()).default([]),
-    // Drafts show up in `npm run dev` but are left out of the production build
-    draft: z.boolean().default(false),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      date: z.coerce.date(),
+      updated: z.coerce.date().optional(),
+      // Display names, e.g. "Bluegrass Book". Each gets a page at /blog/tags/<slug>/
+      tags: z.array(z.string()).default([]),
+      // A run of posts meant to be read in order, e.g. "Bluegrass Book dev log". Each series
+      // gets a page at /blog/series/<slug>/, and its posts show their part number.
+      series: z.string().optional(),
+      // The image shown when the post is shared, e.g. "./screenshot.png". Defaults to the site
+      // card, public/og.png.
+      image: image().optional(),
+      // Drafts show up in `npm run dev` but are left out of the production build
+      draft: z.boolean().default(false),
+    }),
 });
 
 // One Markdown file per project in src/content/projects/. Anything written below the
