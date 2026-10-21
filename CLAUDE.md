@@ -43,7 +43,8 @@ npm run check    # type check
 - `src/data/cv.json`: the public CV, exported from the private resume repo. Its format is
   specified in `docs/cv-json.md` and `docs/cv.schema.json`. Never add anything to it that isn't
   meant to be public.
-- `public/`: copied as-is, including `CNAME`, images, and favicons
+- `public/`: copied as-is, including `CNAME`, images, and favicons. `google3c1e29faf03d24f2.html`
+  verifies the site in Google Search Console; deleting it un-verifies the site.
 
 ## Drafts
 
