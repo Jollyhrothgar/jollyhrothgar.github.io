@@ -4,6 +4,7 @@ description: "Four plugins for Claude Code. arch explains a codebase’s archite
 section: ai
 order: 1
 links:
+  - { label: "All plugins", url: "https://github.com/Jollyhrothgar/personal_ai_config" }
   - { label: "arch", url: "https://github.com/Jollyhrothgar/arch-plugin" }
   - { label: "session", url: "https://github.com/Jollyhrothgar/session-plugin" }
   - { label: "vault", url: "https://github.com/Jollyhrothgar/vault-plugin" }
