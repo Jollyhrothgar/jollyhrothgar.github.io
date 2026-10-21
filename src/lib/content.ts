@@ -12,6 +12,39 @@ export async function getPosts(): Promise<CollectionEntry<'blog'>[]> {
   return posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 }
 
+export interface Tag {
+  name: string;
+  slug: string;
+  count: number;
+}
+
+// "Bluegrass Book" -> "bluegrass-book"
+export function tagSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+export function tagUrl(name: string): string {
+  return `/blog/tags/${tagSlug(name)}/`;
+}
+
+// Every tag used by the given posts, most-used first
+export function getTags(posts: CollectionEntry<'blog'>[]): Tag[] {
+  const tags = new Map<string, Tag>();
+  for (const post of posts) {
+    for (const name of post.data.tags) {
+      const slug = tagSlug(name);
+      const tag = tags.get(slug) ?? { name, slug, count: 0 };
+      tag.count += 1;
+      tags.set(slug, tag);
+    }
+  }
+  return [...tags.values()].sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+}
+
 export async function getProjects(): Promise<CollectionEntry<'projects'>[]> {
   const projects = await getCollection('projects');
   return projects.sort((a, b) => a.data.order - b.data.order);

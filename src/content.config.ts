@@ -2,14 +2,17 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-// One Markdown file per post in src/content/blog/. The file name is the URL: hello.md -> /blog/hello/
+// One Markdown (.md) or MDX (.mdx) file per post in src/content/blog/. The file name is the URL:
+// hello.md -> /blog/hello/. A post with images can be a folder: hello/index.md plus its images.
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
     date: z.coerce.date(),
     updated: z.coerce.date().optional(),
+    // Display names, e.g. "Bluegrass Book". Each gets a page at /blog/tags/<slug>/
+    tags: z.array(z.string()).default([]),
     // Drafts show up in `npm run dev` but are left out of the production build
     draft: z.boolean().default(false),
   }),

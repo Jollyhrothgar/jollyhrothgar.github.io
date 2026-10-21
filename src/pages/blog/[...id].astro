@@ -1,6 +1,7 @@
 ---
 import { render, type CollectionEntry } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import TagList from '../../components/TagList.astro';
 import { formatDate, getPosts } from '../../lib/content';
 
 export async function getStaticPaths() {
@@ -13,7 +14,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, date, updated, draft } = post.data;
+const { title, description, date, updated, draft, tags } = post.data;
 const { Content } = await render(post);
 ---
 
@@ -26,6 +27,7 @@ const { Content } = await render(post);
         {updated && <span> · Updated {formatDate(updated)}</span>}
         {draft && <span> · Draft</span>}
       </p>
+      <div class="tags"><TagList tags={tags} /></div>
     </header>
 
     <div class="prose">
@@ -37,6 +39,10 @@ const { Content } = await render(post);
 </Base>
 
 <style>
+  .tags {
+    margin-top: 1rem;
+  }
+
   .back {
     margin-top: 4rem;
   }

@@ -19,8 +19,12 @@ npm run check    # type check
 - `src/layouts/Base.astro`: shared `<head>`, nav, and footer
 - `src/styles/global.css`: site-wide styles, including `.page-header` and `.prose` (Markdown
   text). Page-specific styles live in each page's `<style>`.
-- `src/content/blog/`: one Markdown file per post. `src/content/blog/example-post.md` is a
-  draft template.
+- `src/content/blog/`: one post per `.md` or `.mdx` file, or per folder (`<slug>/index.md` with
+  its images beside it, referenced as `./image.png`). Posts carry `tags` (display names); each
+  tag gets a page at `/blog/tags/<slug>/`. `example-post.md` and `example-interactive.mdx` are
+  draft templates. The "Bluegrass Book" posts came from bluegrassbook.com's old dev blog.
+- `src/components/sims/`: interactive components for MDX posts. `RandomWalk.astro` is the
+  template: a canvas custom element that animates only while on screen.
 - `src/content/projects/`: one Markdown file per project. Text below the frontmatter becomes a
   write-up page at `/projects/<file name>/`.
 - `src/content.config.ts`: the frontmatter each post and project must have

@@ -1,0 +1,20 @@
+---
+title: Example interactive post
+description: A draft that shows how to put an interactive element in a post. It never appears on the live site.
+date: 2026-10-21
+tags: ["Meta"]
+draft: true
+---
+
+import RandomWalk from '../../components/sims/RandomWalk.astro';
+
+This post is an `.mdx` file, which is Markdown that can also import and use components. Import a
+component at the top of the post, below the frontmatter, then use it like an HTML tag:
+
+<RandomWalk walkers={16} />
+
+Components take props, so the same sim can appear in different posts with different settings.
+Each component's script loads only on the posts that use it.
+
+Interactive components live in `src/components/sims/`. `RandomWalk.astro` is a good one to copy:
+it draws on a canvas, animates only while on screen, and responds to clicks.

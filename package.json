@@ -9,6 +9,7 @@
     "check": "astro check"
   },
   "dependencies": {
+    "@astrojs/mdx": "8.0.2",
     "astro": "7.3.5"
   },
   "devDependencies": {
