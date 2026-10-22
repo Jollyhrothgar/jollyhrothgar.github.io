@@ -6,7 +6,8 @@ consulting page.
 ## Stack
 
 Astro static site, deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to
-`main` and weekly. The built site is plain HTML and CSS with no client-side JavaScript.
+`main` and weekly. The built site is plain HTML and CSS. Its only client-side JavaScript is the
+Google Analytics tag (`G-EK7YRGGWM7`) in `Base.astro`, which is left out of `npm run dev`.
 
 ```bash
 npm install
