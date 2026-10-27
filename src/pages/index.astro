@@ -6,10 +6,12 @@ import { cv } from '../lib/cv';
 
 <Base title="Mike Beaumier">
   <section class="intro">
-    <div class="intro-text">
-      <h1>Mike Beaumier</h1>
-      <p class="lead">{cv.basics.headline} Banjo player. Nerd.</p>
+    <h1>Mike Beaumier</h1>
+    <p class="lead">{cv.basics.headline} Banjo player. Nerd.</p>
 
+    <!-- Work: the headshot sits top left, with the text wrapping around it -->
+    <div class="half">
+      <img src="/Mike-headshot.jpg" alt="Mike Beaumier" class="photo left" />
       <p>
         I'm a data scientist and AI engineer with a decade of professional experience, from
         seed-stage startups and consulting and mentoring all the way up to Google scale.
@@ -29,9 +31,17 @@ import { cv } from '../lib/cv';
         scientist at Delphos Labs, a data scientist at Google, and a machine learning engineer at
         Mercedes-Benz R&D.
       </p>
+    </div>
 
-      <Divider />
+    <Divider />
 
+    <!-- Life outside work: the banjo wizard sits top right -->
+    <div class="half">
+      <img
+        src="/Mike-square.jpg"
+        alt="Mike in a wizard costume, playing the banjo"
+        class="photo right"
+      />
       <p>
         Outside of work, I'm a serial builder and creator, whether that's woodworking,
         pizza-making and cooking, or playing bluegrass with my band, <a
@@ -48,20 +58,12 @@ import { cv } from '../lib/cv';
         creation and sharing, all free (for now) and all on-device.
       </p>
     </div>
-    <picture>
-      <!-- On phones, a square crop of just the wizard and the banjo -->
-      <source media="(max-width: 768px)" srcset="/Mike-square.jpg" />
-      <img src="/Mike.JPG" alt="Mike in a wizard costume, playing the banjo" />
-    </picture>
   </section>
 </Base>
 
 <style>
   .intro {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 4rem;
-    align-items: start;
+    max-width: 780px;
   }
 
   h1 {
@@ -72,49 +74,60 @@ import { cv } from '../lib/cv';
     margin-bottom: 1rem;
   }
 
-  .intro-text {
-    max-width: 580px;
-  }
-
-  .intro-text p {
+  .intro p {
     color: var(--text-2);
     font-size: 1.05rem;
     margin-bottom: 1.25rem;
   }
 
-  .intro-text p:last-child {
-    margin-bottom: 0;
-  }
-
-  .intro-text .lead {
+  .intro .lead {
     color: var(--text);
     font-size: 1.3rem;
     line-height: 1.45;
     margin-bottom: 2rem;
   }
 
-  .intro img {
-    width: 100%;
-    aspect-ratio: 0.618;
+  /* Keeps each photo inside its own half */
+  .half {
+    display: flow-root;
+  }
+
+  .half p:last-child {
+    margin-bottom: 0;
+  }
+
+  .photo {
+    width: 220px;
+    aspect-ratio: 1;
     object-fit: cover;
     border-radius: 8px;
     filter: grayscale(20%);
+    margin-bottom: 1rem;
   }
 
+  .photo.left {
+    float: left;
+    margin-right: 2rem;
+  }
+
+  .photo.right {
+    float: right;
+    margin-left: 2rem;
+  }
+
+  /* Smaller photos on phones, still with the text wrapping around them */
   @media (max-width: 768px) {
-    .intro {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
+    .photo {
+      width: 128px;
+      margin-bottom: 0.5rem;
     }
 
-    /* Full width of the text column, so its edges line up with the text */
-    .intro picture {
-      order: -1;
+    .photo.left {
+      margin-right: 1rem;
     }
 
-    .intro img {
-      aspect-ratio: 4 / 3;
-      object-position: center 30%;
+    .photo.right {
+      margin-left: 1rem;
     }
   }
 </style>
