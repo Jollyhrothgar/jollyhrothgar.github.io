@@ -6,6 +6,10 @@ on:
   # Weekly rebuild, so build-time data like the INSPIRE publication count stays current
   schedule:
     - cron: '17 9 * * 1'
+    # Daily morning build (06:15 Pacific standard time, 07:15 in summer), which publishes
+    # posts scheduled for that morning or earlier (see getPosts in src/lib/content.ts).
+    # GitHub may start a scheduled run late, sometimes by an hour.
+    - cron: '15 14 * * *'
   workflow_dispatch:
 
 permissions:

@@ -7,9 +7,16 @@ function byDate(a: Post, b: Post): number {
   return a.data.date.valueOf() - b.data.date.valueOf() || a.id.localeCompare(b.id);
 }
 
-// Newest first. Drafts are included in dev only.
+// Newest first. Drafts and scheduled posts (dated in the future) are included in dev only.
+// A scheduled post appears in the first build after its date: a push, or the daily morning
+// build in .github/workflows/deploy.yml. Give it a time, e.g. 2026-11-04T06:00:00-08:00;
+// a bare date means midnight UTC, the afternoon before in Pacific time.
 export async function getPosts(): Promise<Post[]> {
-  const posts = await getCollection('blog', (post) => import.meta.env.DEV || !post.data.draft);
+  const now = new Date();
+  const posts = await getCollection(
+    'blog',
+    (post) => import.meta.env.DEV || (!post.data.draft && post.data.date <= now),
+  );
   return posts.sort((a, b) => byDate(b, a));
 }
 

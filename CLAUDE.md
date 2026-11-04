@@ -52,6 +52,16 @@ npm run check    # type check
 A post with `draft: true` appears only in `npm run dev`. The nav shows Blog only once a
 published post exists.
 
+## Scheduled posts
+
+A post dated in the future is left out of the production build until its date has passed
+(`getPosts` in `src/lib/content.ts`), and `npm run dev` shows it. Give the date a time and
+zone, such as `date: 2026-11-04T06:00:00-08:00`, because a bare date means midnight UTC (the
+afternoon before, in Pacific time). Commit it whenever: the next build after that moment
+publishes it. That is either a push or the daily build at 14:15 UTC in `deploy.yml` (06:15
+Pacific standard time). To publish at once, run the workflow by hand
+(`gh workflow run deploy.yml`).
+
 ## Style
 
 Prefer simple, clear, modern design.
