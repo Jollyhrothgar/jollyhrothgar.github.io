@@ -1,9 +1,10 @@
 # Share card
 
 `public/og.png` is the image link previews show (LinkedIn, Slack, iMessage, X) for pages
-without their own `image`: the favicon's inlay (`public/favicon.svg`) beside "Mike Beaumier" and
-"AI Engineering and Data Science with a side of Bluegrass", white on black like the favicon.
-Keep it bold: LinkedIn often shows it as a ~160px thumbnail.
+without their own `image`: "Mike Beaumier" and "AI Engineering and Data Science with a side of
+Bluegrass" on the left, and the favicon's inlay (`public/favicon.svg`) oversized and cropped by
+the right edge, on off-black. The section label is pearl, the card's only colour. Keep it bold:
+LinkedIn often shows it as a ~160px thumbnail.
 
 Each section gets the same card with a label above it: Work History (`/cv/`), Writing
 (`/blog/`, including posts without their own image), Project Portfolio (`/projects/`) and
