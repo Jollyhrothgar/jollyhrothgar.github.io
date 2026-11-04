@@ -18,7 +18,7 @@ const { title, description = cv.basics.headline, image, imageSize, article } = A
 // The site card (public/og.png, from docs/og/) shows the favicon's inlay; see docs/og/README.md
 const share = image
   ? { src: image, ...imageSize, alt: title }
-  : { src: '/og.png', width: 2400, height: 1260, alt: 'A fingerboard inlay, the Mike Beaumier logo' };
+  : { src: '/og.png', width: 2400, height: 1260, alt: 'Mike Beaumier, AI Engineer & Data Scientist' };
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 // Blog shows up in the nav once there is at least one published post

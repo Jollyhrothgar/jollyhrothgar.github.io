@@ -1,7 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 2400 1260">
-<!-- Share card: the favicon's inlay (public/favicon.svg), white on black like the favicon. See README.md -->
-<rect width="2400" height="1260" fill="#000"/>
-<g transform="translate(570 0) translate(175.5 254.5) translate(0 751) scale(0.1 -0.1)" fill="#fff">
+<!DOCTYPE html>
+<!-- Share card source. public/og.png is this page rendered at 1200×630, 2x. See README.md -->
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;500&display=block" rel="stylesheet">
+<style>
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; background: #000; color: #fff; display: flex;
+    align-items: center; justify-content: center; gap: 72px; font-family: Inter, sans-serif; }
+  svg { width: 300px; height: auto; flex: none; }
+  h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 96px; line-height: 1;
+    margin: 0 0 24px; letter-spacing: -0.01em; }
+  .role { font-size: 38px; font-weight: 500; margin: 0 0 28px; }
+  .links { font-size: 28px; color: #a8a8a8; margin: 0; }
+</style></head>
+<body>
+  <svg viewBox="175 254 910 752" aria-hidden="true">
+    <g transform="translate(175.5 254.5) translate(0 751) scale(0.1 -0.1)" fill="#fff">
 <path d="M3147 7355 c-119 -36 -137 -47 -156 -102 -7 -21 -37 -90 -66 -153
 -29 -63 -58 -140 -65 -170 -7 -30 -26 -95 -44 -145 -30 -86 -31 -97 -32 -255
 -1 -91 -5 -229 -9 -308 -8 -143 -8 -143 31 -219 30 -60 59 -97 131 -167 52
@@ -68,5 +81,11 @@
 -564 -80 -223 -107 -357 -216 -483 -393 -79 -111 -102 -130 -161 -131 -76 -2
 -101 17 -190 142 -45 63 -111 141 -147 174 -66 61 -251 178 -354 223 -130 57
 -405 86 -582 61z"/>
-</g>
-</svg>
+    </g>
+  </svg>
+  <div>
+    <h1>Mike Beaumier</h1>
+    <p class="role">AI Engineer &amp; Data Scientist</p>
+    <p class="links">CV · Projects · Blog · Consulting</p>
+  </div>
+</body></html>
