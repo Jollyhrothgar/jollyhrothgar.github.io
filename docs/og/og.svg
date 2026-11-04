@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 2400 1260">
-<!-- Share card: the favicon's inlay (public/favicon.svg) centred on the site background. See README.md -->
-<rect width="2400" height="1260" fill="#faf9f7"/>
-<g transform="translate(570 0) translate(175.5 254.5) translate(0 751) scale(0.1 -0.1)" fill="#1a1a1a">
+<!-- Share card: the favicon's inlay (public/favicon.svg), white on black like the favicon. See README.md -->
+<rect width="2400" height="1260" fill="#000"/>
+<g transform="translate(570 0) translate(175.5 254.5) translate(0 751) scale(0.1 -0.1)" fill="#fff">
 <path d="M3147 7355 c-119 -36 -137 -47 -156 -102 -7 -21 -37 -90 -66 -153
 -29 -63 -58 -140 -65 -170 -7 -30 -26 -95 -44 -145 -30 -86 -31 -97 -32 -255
 -1 -91 -5 -229 -9 -308 -8 -143 -8 -143 31 -219 30 -60 59 -97 131 -167 52

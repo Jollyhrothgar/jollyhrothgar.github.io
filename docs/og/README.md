@@ -1,8 +1,8 @@
 # Share card
 
 `public/og.png` is the image link previews show (LinkedIn, Slack, iMessage, X) for pages
-without their own `image`. It is the favicon's inlay (`public/favicon.svg`) centred on the site
-background, kept bold and sparse because LinkedIn often shows it as a ~160px thumbnail.
+without their own `image`. It is the favicon's inlay (`public/favicon.svg`) centred in white on black,
+like the favicon itself, kept bold and sparse because LinkedIn often shows it as a ~160px thumbnail.
 
 `og.svg` is the source, 2400×1260 (1.91:1, rendered at 2x for sharpness). To re-render:
 
