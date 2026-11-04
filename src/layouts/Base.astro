@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import { cv } from '../lib/cv';
 import { getPosts } from '../lib/content';
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 
 interface Props {
   title: string;
@@ -26,10 +28,16 @@ const sectionCards = [
 ];
 const tagline = 'Mike Beaumier: AI Engineering and Data Science with a side of Bluegrass';
 const card = sectionCards.find((c) => Astro.url.pathname.startsWith(c.path));
+// LinkedIn caches a card's image by URL, so add a hash of the file: a re-rendered card gets a
+// new URL and a re-scrape picks it up
+function versioned(src: string) {
+  const hash = createHash('sha256').update(readFileSync(`public${src}`)).digest('hex');
+  return `${src}?v=${hash.slice(0, 8)}`;
+}
 const share = image
   ? { src: image, ...imageSize, alt: title }
   : {
-      src: card?.src ?? '/og.png',
+      src: versioned(card?.src ?? '/og.png'),
       width: 2400,
       height: 1260,
       alt: card ? `${card.label} · ${tagline}` : tagline,
