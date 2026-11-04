@@ -30,6 +30,10 @@ const shareImage = image && (await getImage({ src: image, width: 1200, format: '
   title={series ? `${title} · ${series.name} · Mike Beaumier` : `${title} · Mike Beaumier`}
   description={description}
   image={shareImage?.src}
+  imageSize={shareImage && {
+    width: Number(shareImage.attributes.width),
+    height: Number(shareImage.attributes.height),
+  }}
   article={{ published: date, updated }}
 >
   <article>

@@ -8,11 +8,17 @@ interface Props {
   description?: string;
   // The image shown when the page is shared. Defaults to the site card.
   image?: string;
+  // The image's size in pixels. Needed with `image`; the default card is 2400×1260.
+  imageSize?: { width: number; height: number };
   // Set on blog posts
   article?: { published: Date; updated?: Date };
 }
 
-const { title, description = cv.basics.headline, image = '/og.png', article } = Astro.props;
+const { title, description = cv.basics.headline, image, imageSize, article } = Astro.props;
+// The site card (public/og.png, from docs/og/) shows the favicon's inlay; see docs/og/README.md
+const share = image
+  ? { src: image, ...imageSize, alt: title }
+  : { src: '/og.png', width: 2400, height: 1260, alt: 'A fingerboard inlay, the Mike Beaumier logo' };
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 // Blog shows up in the nav once there is at least one published post
@@ -61,7 +67,10 @@ const isCurrent = (href: string) => (href === '/' ? current === '/' : current.st
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(image, Astro.site)} />
+    <meta property="og:image" content={new URL(share.src, Astro.site)} />
+    {share.width && <meta property="og:image:width" content={String(share.width)} />}
+    {share.height && <meta property="og:image:height" content={String(share.height)} />}
+    <meta property="og:image:alt" content={share.alt} />
     <meta name="twitter:card" content="summary_large_image" />
     {
       article && (
