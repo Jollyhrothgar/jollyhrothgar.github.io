@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <!-- Share card source. public/og.png is this page rendered at 1200×630, 2x. See README.md -->
 <html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:ital,wght@0,400;0,500;1,400&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:ital,wght@0,400;0,600;1,400&display=block" rel="stylesheet">
 <style>
   html, body { margin: 0; }
   body { width: 1200px; height: 630px; background: #000; color: #fff; display: flex;
-    align-items: center; justify-content: center; gap: 72px; font-family: Inter, sans-serif; }
+    flex-direction: column; align-items: center; justify-content: center; gap: 64px;
+    font-family: Inter, sans-serif; }
+  .brand { display: flex; align-items: center; gap: 72px; }
   svg { width: 300px; height: auto; flex: none; }
   h1 { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 96px; line-height: 1;
     margin: 0 0 28px; letter-spacing: -0.01em; }
+  .section { font-size: 56px; font-weight: 600; letter-spacing: -0.01em; color: #e8e8e8;
+    margin: 0; }
+  .section:empty { display: none; }
   .tagline em { color: #8c8c8c; }
   .tagline { font-size: 36px; line-height: 1.35; color: #c8c8c8; margin: 0; }
 </style></head>
 <body>
+  <p class="section" id="section"></p>
+  <div class="brand">
   <svg viewBox="175 254 910 752" aria-hidden="true">
     <g transform="translate(175.5 254.5) translate(0 751) scale(0.1 -0.1)" fill="#fff">
 <path d="M3147 7355 c-119 -36 -137 -47 -156 -102 -7 -21 -37 -90 -66 -153
@@ -87,4 +94,10 @@
     <h1>Mike Beaumier</h1>
     <p class="tagline">AI Engineering and Data Science<br /><em>with a side of Bluegrass</em></p>
   </div>
+  </div>
+<script>
+  // og.html?section=Writing renders that section's card; no section renders the site card
+  document.getElementById('section').textContent =
+    new URLSearchParams(location.search).get('section') || '';
+</script>
 </body></html>

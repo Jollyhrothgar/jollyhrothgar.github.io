@@ -6,19 +6,34 @@ import { getPosts } from '../lib/content';
 interface Props {
   title: string;
   description?: string;
-  // The image shown when the page is shared. Defaults to the site card.
+  // The image shown when the page is shared. Defaults to the section's card.
   image?: string;
-  // The image's size in pixels. Needed with `image`; the default card is 2400×1260.
+  // The image's size in pixels. Needed with `image`; the cards are 2400×1260.
   imageSize?: { width: number; height: number };
   // Set on blog posts
   article?: { published: Date; updated?: Date };
 }
 
 const { title, description = cv.basics.headline, image, imageSize, article } = Astro.props;
-// The site card (public/og.png, from docs/og/) shows the favicon's inlay; see docs/og/README.md
+
+// Share cards, rendered by docs/og/render.sh: one per section, labelled above the name, and
+// the unlabelled site card for everything else
+const sectionCards = [
+  { path: '/cv/', src: '/og/cv.png', label: 'Work History' },
+  { path: '/blog/', src: '/og/blog.png', label: 'Writing' },
+  { path: '/projects/', src: '/og/projects.png', label: 'Project Portfolio' },
+  { path: '/consulting/', src: '/og/consulting.png', label: 'Consulting' },
+];
+const tagline = 'Mike Beaumier: AI Engineering and Data Science with a side of Bluegrass';
+const card = sectionCards.find((c) => Astro.url.pathname.startsWith(c.path));
 const share = image
   ? { src: image, ...imageSize, alt: title }
-  : { src: '/og.png', width: 2400, height: 1260, alt: 'Mike Beaumier: AI Engineering and Data Science with a side of Bluegrass' };
+  : {
+      src: card?.src ?? '/og.png',
+      width: 2400,
+      height: 1260,
+      alt: card ? `${card.label} · ${tagline}` : tagline,
+    };
 const canonical = new URL(Astro.url.pathname, Astro.site);
 
 // Blog shows up in the nav once there is at least one published post
