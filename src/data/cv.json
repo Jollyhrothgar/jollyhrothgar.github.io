@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "repo": "Jollyhrothgar/resume",
-    "commit": "88da90d"
+    "commit": "5c98e49"
   },
   "basics": {
     "name": "Mike Beaumier",
@@ -27,13 +27,34 @@
   "experience": [
     {
       "kind": "work",
+      "organization": "Bluegrass Songbook",
+      "location": "Remote",
+      "roles": [
+        {
+          "title": "Founder & Engineer",
+          "start": "2025-05",
+          "end": null,
+          "highlights": [
+            "Founded, designed, launched, and ran bluegrassbook.com, a song and tablature platform for bluegrass musicians, directing parallel Claude Code agents as its architect, reviewer, and product owner",
+            "Designed the guardrails for shipping AI-agent code to a live platform, from automated test and live-schema merge gates to human approval of every merge, database migration, and paid API call",
+            "Built ingestion pipelines that merged 19,000+ works from 13 sources into one deduplicated corpus with canonical versions, and curated a searchable core of about 2,600 songs ranked by a genre-affinity model",
+            "Reverse-engineered the binary file format of TablEdit, a long-standing desktop tablature editor, then designed and published an open JSON tab format with a schema, renderer, audio playback, and in-browser editor",
+            "Designed, built, and ran bluegrassbook.com as an installable, offline-first, serverless web app for under $5 a month, with client-side search, offline song lists, and moderated community corrections landing as versioned commits"
+          ],
+          "projects": [],
+          "summary": "Song and tablature web platform for bluegrass musicians; founded it and owned product, engineering, and operations, building it with AI coding agents"
+        }
+      ]
+    },
+    {
+      "kind": "work",
       "organization": "Delphos Labs",
       "location": "Remote",
       "roles": [
         {
           "title": "Founding Staff Data Scientist",
-          "start": "2025-10",
-          "end": null,
+          "start": "2025-09",
+          "end": "2026-10",
           "highlights": [],
           "projects": [
             {
@@ -226,7 +247,7 @@
           "start": "2016-08",
           "end": "2018-04",
           "highlights": [
-            "Led the final modeling stages of MBUX, Mercedes' flagship in-car system, whose probabilistic graphical models predicted each driver's destinations, media, and calls from privacy-preserving in-car data",
+            "Led the final modeling stages of MBUX, Mercedes' 2016 flagship head-unit software, whose probabilistic graphical models predicted each driver's destinations, media, and calls from privacy-preserving in-car data",
             "Built a reporting framework and predictive models of when vehicles would need service from Mercedes' global aftermarket data, informing marketing and helping dealerships prevent customer churn",
             "Built the end-to-end data and ML pipeline for a mobile EV-charging pilot, from a daily vehicle-telemetry pipeline and stakeholder dashboard to models predicting battery state, destination, and parking time",
             "Built Mercedes' first ML model of tire replacement, using hierarchical modeling to time proactive dealership outreach"
