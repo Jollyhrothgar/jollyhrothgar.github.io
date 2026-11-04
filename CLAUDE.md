@@ -30,8 +30,8 @@ npm run check    # type check
 - `src/pages/rss.xml.ts`: the blog's RSS feed (description and link for each post)
 - Sitemap: built by `@astrojs/sitemap` as `sitemap-index.xml`; `public/robots.txt` points to it
 - Share previews: `Base.astro` sets the Open Graph tags. Pages without their own image use
-  `public/og.png`, a 2400×1260 card of the favicon's inlay; its source and how to re-render it
-  are in `docs/og/`.
+  `public/og.png`, a 2400×1260 card of the favicon's inlay beside Mike's name; its source and how
+  to re-render it are in `docs/og/`.
 - `src/components/sims/`: interactive components for MDX posts. `RandomWalk.astro` is the
   template: a canvas custom element that animates only while on screen.
 - `src/content/projects/`: one Markdown file per project, with its `section` (see `SECTIONS` in
