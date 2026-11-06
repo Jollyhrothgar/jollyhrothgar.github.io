@@ -18,7 +18,7 @@ interface Props {
 
 const { title, description = cv.basics.headline, image, imageSize, article } = Astro.props;
 
-// Share cards, rendered by docs/og/render.sh: one per section, labelled above the name, and
+// Share cards, rendered by docs/og/render.sh: one per section, labelled under the name, and
 // the unlabelled site card for everything else
 const sectionCards = [
   { path: '/cv/', src: '/og/cv.png', label: 'Work History' },
@@ -26,7 +26,7 @@ const sectionCards = [
   { path: '/projects/', src: '/og/projects.png', label: 'Project Portfolio' },
   { path: '/consulting/', src: '/og/consulting.png', label: 'Consulting' },
 ];
-const tagline = 'Mike Beaumier: AI Engineering and Data Science with a side of Bluegrass';
+const tagline = 'Mike Beaumier: AI & Data Science';
 const card = sectionCards.find((c) => Astro.url.pathname.startsWith(c.path));
 // LinkedIn caches a card's image by URL, so add a hash of the file: a re-rendered card gets a
 // new URL and a re-scrape picks it up
@@ -40,7 +40,7 @@ const share = image
       src: versioned(card?.src ?? '/og.png'),
       width: 2400,
       height: 1260,
-      alt: card ? `${card.label} · ${tagline}` : tagline,
+      alt: card ? `Mike Beaumier: ${card.label}` : tagline,
     };
 const canonical = new URL(Astro.url.pathname, Astro.site);
 

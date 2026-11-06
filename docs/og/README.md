@@ -1,17 +1,20 @@
 # Share card
 
 `public/og.png` is the image link previews show (LinkedIn, Slack, iMessage, X) for pages
-without their own `image`: "Mike Beaumier" and "AI Engineering and Data Science with a side of
-Bluegrass" on the left, and the favicon's inlay (`public/favicon.svg`) oversized and cropped by
-the right edge, on off-black. The section label is pearl, the card's only colour. Keep it bold:
-LinkedIn often shows it as a ~160px thumbnail.
+without their own `image`: "Mike Beaumier" over two lines and "AI & Data Science" on the left,
+and the favicon's inlay (`public/favicon.svg`) whole on the right, on off-black.
 
-Each section gets the same card with a label above it: Work History (`/cv/`), Writing
-(`/blog/`, including posts without their own image), Project Portfolio (`/projects/`) and
-Consulting (`/consulting/`), in `public/og/`. `Base.astro` picks the card by path.
+LinkedIn usually shows it as a ~160×84 thumbnail it scales itself, so a sharper source doesn't
+help: only a few big elements survive. Check any change at that size
+(`sips -z 84 160 public/og.png --out /tmp/thumb.png`).
+
+Each section's card puts its name, in pearl, in place of "AI & Data Science": Work History
+(`/cv/`), Writing (`/blog/`, including posts without their own image), Project Portfolio
+(`/projects/`) and Consulting (`/consulting/`), in `public/og/`. `Base.astro` picks the card by
+path, and adds a hash of the file to its URL so LinkedIn re-fetches a re-rendered card.
 
 `og.html` is the source, laid out at 1200×630 (1.91:1) and rendered at 2x, so 2400×1260;
-`og.html?section=Writing` adds a label. It loads the site fonts from Google Fonts. To re-render
+`og.html?section=Writing` renders a section's card. It loads the site fonts from Google Fonts. To re-render
 every card, from the repo root:
 
 ```bash
