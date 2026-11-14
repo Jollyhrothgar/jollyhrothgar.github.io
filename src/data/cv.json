@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "repo": "Jollyhrothgar/resume",
-    "commit": "80daf36"
+    "commit": "bee5e36"
   },
   "basics": {
     "name": "Mike Beaumier",
@@ -274,7 +274,7 @@
             "Separated about 600 W decays from 15.7 billion collisions, where four in five surviving candidates were still background, with an extended unbinned maximum-likelihood fit using data to model background too rare to simulate",
             "Result: the first such measurement with forward muons, indicating anti-up quarks spin with the proton more than earlier fits estimated; RHIC's W measurements together showed anti-up and anti-down quarks polarized oppositely, nearly cancelling",
             "Helped build and test the resistive plate chambers (RPCs) that triggered on forward muons for PHENIX's W-boson measurement",
-            "Helped collect the 2013 polarized-proton dataset that makes up most of the published measurement's data, taking data-acquisition shifts, and managed online data reconstruction for the experiment",
+            "Helped collect the 2013 polarized-proton dataset that makes up most of the published measurement's data, taking data-acquisition shifts, and managed petabyte-scale online data reconstruction for the experiment",
             "Maintained and developed PHENIX's online spin monitor, the real-time check during data taking that the colliding proton beams are polarized in the intended direction and pattern",
             "Ran parallel beam-collision simulations on high-performance computing clusters",
             "Award-winning teaching assistant: top 2% of evaluations, with department and university teaching awards"

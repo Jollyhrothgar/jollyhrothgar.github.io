@@ -208,12 +208,15 @@ YAML key.
 
 ## Delivering the file
 
-1. **For now:** run the exporter locally and copy the output to `src/data/cv.json` in the site
-   repo's `redesign` branch.
-2. **Later, in CI:** when `people/mike/resume.yaml` changes on `main` in the resume repo, run the
-   exporter, validate, run the denylist check, then commit `src/data/cv.json` to the site repo,
-   or open a PR there. The token for that lives in the resume repo's secrets. The site repo
-   never gets access to the resume repo.
+1. **Locally (how it works today):** in the resume repo, run `scripts/cv/regen.sh [SITE_DIR]` or
+   `export_cv.py --out <site worktree>/src/data/cv.json`. Either writes `src/data/cv.json` into a
+   site worktree and validates it, including the denylist check. The CV goes live when that file
+   is committed to `main` here, which triggers the deploy.
+2. **In CI (not working yet):** when `people/mike/resume.yaml` changes on `main` in the resume
+   repo, its workflow runs the exporter, validates, runs the denylist check, and commits
+   `src/data/cv.json` to this repo's `main`. Every run so far has failed at the site checkout,
+   because the resume repo holds no credential for this repo yet. When it has one, the token
+   lives in the resume repo's secrets. The site repo never gets access to the resume repo.
 
 ## Changing the format
 
