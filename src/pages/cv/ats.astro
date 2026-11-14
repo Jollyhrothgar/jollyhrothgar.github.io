@@ -1,0 +1,185 @@
+---
+// The CV as a plain page for applicant tracking systems: one column, standard section names,
+// system fonts, no decoration. Not linked or indexed; the build prints it to
+// /cv/Mike-Beaumier-CV-ATS.pdf (integrations/cv-pdf.mjs), which the CV page links to.
+import { cv, formatRange, formatYears } from '../../lib/cv';
+
+const { basics } = cv;
+const work = cv.experience.filter((entry) => entry.kind === 'work');
+const other = cv.experience.filter((entry) => entry.kind !== 'work');
+const publications = cv.publications.filter((pub) => pub.selected);
+const contact = [
+  basics.location,
+  basics.email,
+  ...basics.links.map((link) => link.url.replace(/^https:\/\//, '')),
+].filter(Boolean);
+
+// Text extraction drops a hyphen that ends a line ("in-browser" reads as "inbrowser"), so
+// keep hyphenated words on one line
+function text(value: string): string {
+  const escaped = value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  return escaped.replace(/(\S*\w-\w\S*)/g, '<span class="nw">$1</span>');
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>{basics.name} Resume</title>
+    <style is:inline>
+      @page {
+        size: Letter;
+        margin: 0.6in 0.7in;
+      }
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10.5pt;
+        line-height: 1.3;
+        color: #000;
+        background: #fff;
+        margin: 0;
+      }
+      h1 {
+        font-size: 18pt;
+        margin: 0 0 2pt;
+      }
+      h2 {
+        font-size: 12pt;
+        margin: 14pt 0 4pt;
+        text-transform: uppercase;
+        break-after: avoid;
+      }
+      h3 {
+        font-size: 10.5pt;
+        margin: 9pt 0 0;
+        break-after: avoid;
+      }
+      p {
+        margin: 2pt 0;
+      }
+      .dates {
+        margin: 0 0 2pt;
+        break-after: avoid;
+      }
+      .project {
+        font-weight: bold;
+        font-style: italic;
+        margin-top: 6pt;
+        break-after: avoid;
+      }
+      ul {
+        margin: 2pt 0;
+        padding-left: 16pt;
+      }
+      li {
+        margin: 1pt 0;
+      }
+      .nw {
+        white-space: nowrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>{basics.name}</h1>
+    <p>{basics.headline}</p>
+    <p>{contact.join(' | ')}</p>
+
+    <h2>Experience</h2>
+    {
+      work.map((entry) =>
+        entry.roles.map((role) => (
+          <>
+            <h3>
+              {role.title}, {entry.organization}
+              {entry.location && `, ${entry.location}`}
+            </h3>
+            <p class="dates">{formatRange(role.start, role.end)}</p>
+            {role.summary && <p set:html={text(role.summary)} />}
+            {role.highlights.length > 0 && (
+              <ul>
+                {role.highlights.map((item) => (
+                  <li set:html={text(item)} />
+                ))}
+              </ul>
+            )}
+            {role.projects.map((project) => (
+              <>
+                <p class="project">
+                  {project.name}
+                  {project.year && ` (${project.year})`}
+                </p>
+                {project.summary && <p set:html={text(project.summary)} />}
+                <ul>
+                  {project.highlights.map((item) => (
+                    <li set:html={text(item)} />
+                  ))}
+                </ul>
+              </>
+            ))}
+          </>
+        )),
+      )
+    }
+
+    <h2>Education</h2>
+    {
+      cv.education.map((degree) => (
+        <>
+          <h3>
+            {degree.degree}, {degree.institution}
+          </h3>
+          <p class="dates">{formatYears(degree.start, degree.end)}</p>
+          {degree.note && <p set:html={text(degree.note)} />}
+        </>
+      ))
+    }
+
+    <h2>Research, Fellowships and Volunteering</h2>
+    {
+      other.map((entry) =>
+        entry.roles.map((role) => (
+          <>
+            <h3>
+              {role.title}, {entry.organization}
+            </h3>
+            <p class="dates">{formatRange(role.start, role.end)}</p>
+            {role.summary && <p set:html={text(role.summary)} />}
+            <ul>
+              {role.highlights.map((item) => (
+                <li set:html={text(item)} />
+              ))}
+            </ul>
+          </>
+        )),
+      )
+    }
+
+    <h2>Skills</h2>
+    {
+      cv.skills.map((group) => (
+        <p>
+          <b>{group.group}:</b> <Fragment set:html={text(group.items.join(', '))} />
+        </p>
+      ))
+    }
+
+    {
+      publications.length > 0 && (
+        <>
+          <h2>Publications</h2>
+          {publications.map((pub) => (
+            <p>
+              <b set:html={text(pub.title)} />.{' '}
+              {[pub.collaboration && `${pub.collaboration} Collaboration`, pub.venue, pub.year]
+                .filter(Boolean)
+                .join(', ')}
+              .
+            </p>
+          ))}
+        </>
+      )
+    }
+  </body>
+</html>

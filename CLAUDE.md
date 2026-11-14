@@ -45,6 +45,11 @@ npm run check    # type check
 - `src/data/cv.json`: the public CV, exported from the private resume repo. Its format is
   specified in `docs/cv-json.md` and `docs/cv.schema.json`. Never add anything to it that isn't
   meant to be public.
+- CV PDFs: the CV page's two download buttons link to PDFs that `integrations/cv-pdf.mjs`
+  prints with headless Chrome after every build, so `npm run build` needs Chrome (or
+  `CHROME_PATH`) and the links 404 in `npm run dev`. `Mike-Beaumier-CV.pdf` is `/cv/` through
+  its print styles; `Mike-Beaumier-CV-ATS.pdf` is `src/pages/cv/ats.astro`, a plain
+  single-column page for applicant tracking systems, left out of the sitemap and not indexed.
 - `public/`: copied as-is, including `CNAME`, images, and favicons. `google3c1e29faf03d24f2.html`
   verifies the site in Google Search Console; deleting it un-verifies the site.
 

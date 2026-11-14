@@ -29,7 +29,10 @@ const inspireCount = inspire ? await publicationCount(inspire.url) : null;
         }
       </p>
     </div>
-    <button type="button" class="print" onclick="window.print()">Save as PDF</button>
+    <div class="downloads">
+      <a href="/cv/Mike-Beaumier-CV.pdf" download>Download PDF</a>
+      <a href="/cv/Mike-Beaumier-CV-ATS.pdf" download title="Plain single-column layout for applicant tracking systems">ATS-friendly PDF</a>
+    </div>
   </header>
 
   <section aria-labelledby="experience">
@@ -217,19 +220,26 @@ const inspireCount = inspire ? await publicationCount(inspire.url) : null;
     text-decoration-color: currentColor;
   }
 
-  .print {
+  /* Both PDFs are made by the build (integrations/cv-pdf.mjs), so they 404 in `npm run dev` */
+  .downloads {
     flex-shrink: 0;
-    font: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .downloads a {
     font-weight: 500;
+    text-align: center;
+    text-decoration: none;
     color: var(--text);
-    background: none;
     border: 1px solid var(--text);
     border-radius: 6px;
     padding: 0.5rem 1rem;
-    cursor: pointer;
+    white-space: nowrap;
   }
 
-  .print:hover {
+  .downloads a:hover {
     background: var(--text);
     color: var(--bg);
   }
@@ -351,6 +361,11 @@ const inspireCount = inspire ? await publicationCount(inspire.url) : null;
       gap: 1.25rem;
     }
 
+    .downloads {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
     .org-head,
     .role-head,
     .project h4 {
@@ -366,7 +381,7 @@ const inspireCount = inspire ? await publicationCount(inspire.url) : null;
       line-height: 1.4;
     }
 
-    .print {
+    .downloads {
       display: none;
     }
 
