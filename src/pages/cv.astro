@@ -8,6 +8,7 @@ const work = cv.experience.filter((entry) => entry.kind === 'work');
 const other = cv.experience.filter((entry) => entry.kind !== 'work');
 const publications = cv.publications.filter((pub) => pub.selected);
 const inspire = basics.links.find((link) => link.label === 'INSPIRE-HEP');
+const scholar = basics.links.find((link) => link.label === 'Google Scholar');
 const inspireCount = inspire ? await publicationCount(inspire.url) : null;
 ---
 
@@ -106,7 +107,7 @@ const inspireCount = inspire ? await publicationCount(inspire.url) : null;
         {inspire && (
           <p class="more">
             {inspireCount ? `All ${inspireCount} publications` : 'Full publication record'} on <a
-              href={inspire.url}>INSPIRE-HEP</a>.
+              href={inspire.url}>INSPIRE-HEP</a>{scholar && <> and <a href={scholar.url}>Google Scholar</a></>}.
           </p>
         )}
       </section>
