@@ -75,7 +75,7 @@
               "name": "Architected data provenance metadata registry for all data artifacts",
               "year": "2026",
               "highlights": [
-                "Set the company's data-provenance direction by designing a metadata registry for every dataset and model, writing its build-versus-adopt analysis, and driving its adoption into the shared data platform"
+                "Tech-led a provenance system for every dataset and model the company built: wrote the prototype and all design documents, set the direction, and guided junior engineers who built it into the shared data platform"
               ]
             },
             {
@@ -274,8 +274,8 @@
             "Separated about 600 W decays from 15.7 billion collisions, where four in five surviving candidates were still background, with an extended unbinned maximum-likelihood fit using data to model background too rare to simulate",
             "Result: the first such measurement with forward muons, indicating anti-up quarks spin with the proton more than earlier fits estimated; RHIC's W measurements together showed anti-up and anti-down quarks polarized oppositely, nearly cancelling",
             "Helped build and test the resistive plate chambers (RPCs) that triggered on forward muons for PHENIX's W-boson measurement",
-            "Took data-acquisition shifts and managed online data reconstruction during the 2013 polarized-proton run, which collected most of the published measurement's data",
-            "Worked on the spin monitor that checks the colliding proton beams' polarization direction at PHENIX",
+            "Helped collect the 2013 polarized-proton dataset that makes up most of the published measurement's data, taking data-acquisition shifts, and managed online data reconstruction for the experiment",
+            "Maintained and developed PHENIX's online spin monitor, the real-time check during data taking that the colliding proton beams are polarized in the intended direction and pattern",
             "Ran parallel beam-collision simulations on high-performance computing clusters",
             "Award-winning teaching assistant: top 2% of evaluations, with department and university teaching awards"
           ],

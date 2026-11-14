@@ -84,7 +84,7 @@ function text(value: string): string {
   <body>
     <h1>{basics.name}</h1>
     <p>{basics.headline}</p>
-    <p>{contact.join(' | ')}</p>
+    <p>{contact.map((item, i) => <>{i > 0 && ' | '}<span class="nw">{item}</span></>)}</p>
 
     <h2>Experience</h2>
     {
