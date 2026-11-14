@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "source": {
     "repo": "Jollyhrothgar/resume",
-    "commit": "5c98e49"
+    "commit": "80daf36"
   },
   "basics": {
     "name": "Mike Beaumier",
-    "headline": "Data scientist and AI engineer. PhD in experimental particle physics.",
+    "headline": "PhD physicist turned AI engineer and data science leader",
     "location": "Southern California",
     "email": "hello@mikebeaumier.com",
     "links": [
@@ -27,7 +27,7 @@
   "experience": [
     {
       "kind": "work",
-      "organization": "Bluegrass Songbook",
+      "organization": "bluegrassbook.com",
       "location": "Remote",
       "roles": [
         {
@@ -38,11 +38,11 @@
             "Founded, designed, launched, and ran bluegrassbook.com, a song and tablature platform for bluegrass musicians, directing parallel Claude Code agents as its architect, reviewer, and product owner",
             "Designed the guardrails for shipping AI-agent code to a live platform, from automated test and live-schema merge gates to human approval of every merge, database migration, and paid API call",
             "Built ingestion pipelines that merged 19,000+ works from 13 sources into one deduplicated corpus with canonical versions, and curated a searchable core of about 2,600 songs ranked by a genre-affinity model",
-            "Reverse-engineered the binary file format of TablEdit, a long-standing desktop tablature editor, then designed and published an open JSON tab format with a schema, renderer, audio playback, and in-browser editor",
+            "Reverse-engineered the binary file format of TablEdit, a long-standing desktop tablature editor, then designed and published an open, diffable notation format that programs can read and edit, with a schema, renderer, and in-browser editor",
             "Designed, built, and ran bluegrassbook.com as an installable, offline-first, serverless web app for under $5 a month, with client-side search, offline song lists, and moderated community corrections landing as versioned commits"
           ],
           "projects": [],
-          "summary": "Song and tablature web platform for bluegrass musicians; founded it and owned product, engineering, and operations, building it with AI coding agents"
+          "summary": "Song and tablature library for bluegrass musicians with 7,000+ visitors; founded it and owned product, engineering, and operations"
         }
       ]
     },
@@ -78,7 +78,7 @@
               "name": "Transformed and hardened vulnerability detection workflows",
               "year": "2025-2026",
               "highlights": [
-                "Matched a deep-learning vulnerability detector for compiled code at 97.6% pairwise accuracy with gradient-boosted models on domain-knowledge features",
+                "Automated the building of an interpretable classifier that matched the company's foundation-model vulnerability detector: a self-improving agent loop read its errors, wrote features from a security-knowledge library, and kept what helped",
                 "Designed and built an expert-in-the-loop annotation platform pairing structured LLM analysis (Pydantic AI) with expert review, which produced the company's gold-standard evaluation set for vulnerability detection in compiled code",
                 "Showed LoRA matching full fine-tuning of a 110M-parameter transformer for vulnerability detection in compiled code while training 1.07% of its parameters",
                 "Shaped the research direction toward agentic approaches with evidence from expert review, gradient-boosted baselines, and a LoRA study"
@@ -140,9 +140,9 @@
               "name": "Quality measurement for LLM content classifiers",
               "year": "2024-2025",
               "highlights": [
-                "Guided the design and validated the launch of Google's LLM auto-labeling classifiers, trusted only where precision's 95% lower bound cleared 80%, scaling review 10x across billions of web pages",
+                "Guided the design and validated the launch of Google's LLM auto-labeling classifiers, trusted only where the 95% lower confidence bound on precision cleared 80%, scaling review 10x across billions of web pages",
                 "Set Google Ads Safety's org-wide launch QA for LLM content classifiers, designing and building the sampling-and-review check for classifiers set to launch unchecked after tuning on dozens of examples",
-                "Built precision dashboards for Google's production LLM content classifiers from a continuous stream of human-reviewed samples, using bootstrapped confidence intervals to flag underperformers for prompt retuning or retraining"
+                "Built precision dashboards for Google's production LLM content classifiers on a continuous stream of human-reviewed samples, with bootstrapped confidence intervals to tell real drops from noise and flag underperformers"
               ]
             },
             {
@@ -164,20 +164,19 @@
               "name": "Ad Query Forecasting to Prioritize Content Review for New URLs",
               "year": "2022-2023",
               "highlights": [
-                "Led a traffic-forecasting system end to end that flagged high-traffic new URLs within 90 minutes, cutting their harmful ad impressions 60% in the first 24 hours, in a pipeline streaming hundreds of millions of URLs weekly",
-                "Identified the 90-minute window after a high-traffic URL first appears in which most of its harmful ad impressions can be prevented, from time-series analysis of Google's ad-query logs covering billions of URLs"
+                "Found in ad-request logs the 90-minute window in which most of a new high-traffic page's harmful ad views can still be prevented, then led the forecasting system that flags such pages inside it, cutting those views 60% in 24 hours"
               ]
             },
             {
               "name": "Machine learning fairness for content classification",
               "year": "2022",
               "highlights": [
-                "Led Google Ads Safety's ML fairness working group and set the org-wide bias metric for its content classifiers, false-positive-rate disparity on propensity-score-matched content, using human validation and hypothesis tests",
+                "Led Google Ads Safety's ML fairness working group and set the org-wide bias metric for its content classifiers: false positive rate disparity on propensity-score-matched content, with human validation and hypothesis tests",
                 "Designed and scaled ML fairness measurement across Google's policy classifiers, finding classification disparities affecting protected groups and enabling their fixes"
               ]
             }
           ],
-          "summary": "Data science, machine learning, and LLM systems for Google Ads Safety's policy enforcement across the web"
+          "summary": "Google stops serving ads on web pages that break its content policies; built the forecasting, classifiers, and measurement that decided which of billions of pages human reviewers saw and which could be judged automatically"
         },
         {
           "title": "Senior Data Scientist, Google Customer Solutions",
@@ -211,12 +210,12 @@
               "name": "Revenue-based routing for new advertisers",
               "highlights": [
                 "Built the data and real-time pipelines for a team model that classified each new advertiser's 91-day revenue bucket to pick its sales treatment, routing $8B+ in revenue across 7M+ new advertisers",
-                "Raised the precision of Google's new-advertiser revenue-routing model by redesigning its time-varying features as trend lines fit to each account's recent history, gaining 20%+ on high-spend advertisers and 28% on high-touch routing",
+                "Gave a tabular AutoML revenue-routing model time-series awareness with trend-line features fit to each account's recent history, its largest gain: precision up 20%+ on high-spend advertisers",
                 "Mentored and onboarded new members of the team behind Google's $8B+ new-advertiser revenue-routing model, kept its data pipelines stable, wrote the model's documentation, and presented its results to leadership"
               ]
             }
           ],
-          "summary": "Data science for Google's advertiser sales organization, covering revenue routing, churn, and sales-program measurement"
+          "summary": "Google's sales teams can give personal attention to only a fraction of its advertisers; built the pipelines and models that helped choose which ones, and the measurement of whether that attention paid off"
         }
       ]
     },
@@ -247,7 +246,7 @@
           "start": "2016-08",
           "end": "2018-04",
           "highlights": [
-            "Led the final modeling stages of MBUX, Mercedes' 2016 flagship head-unit software, whose probabilistic graphical models predicted each driver's destinations, media, and calls from privacy-preserving in-car data",
+            "Led the final modeling stages of MBUX, Mercedes' 2018 flagship head-unit software, whose probabilistic graphical models predicted each driver's destinations, media, and calls from privacy-preserving in-car data",
             "Built a reporting framework and predictive models of when vehicles would need service from Mercedes' global aftermarket data, informing marketing and helping dealerships prevent customer churn",
             "Built the end-to-end data and ML pipeline for a mobile EV-charging pilot, from a daily vehicle-telemetry pipeline and stakeholder dashboard to models predicting battery state, destination, and parking time",
             "Built Mercedes' first ML model of tire replacement, using hierarchical modeling to time proactive dealership outreach"
@@ -267,10 +266,13 @@
           "start": "2009-09",
           "end": "2016-08",
           "highlights": [
-            "Trained unbinned maximum-likelihood estimators on petabyte-scale collider data to identify rare particle decays",
+            "Measured how W-boson production changes when the proton beam's spin is flipped, which shows how the proton's antiquarks are polarized, flavor by flavor; the analysis was foundational to Phys. Rev. D 98, 032007",
+            "Separated about 600 W decays from 15.7 billion collisions, where four in five surviving candidates were still background, with an extended unbinned maximum-likelihood fit using data to model background too rare to simulate",
+            "Result: the first such measurement with forward muons, indicating anti-up quarks spin with the proton more than earlier fits estimated; RHIC's W measurements together showed anti-up and anti-down quarks polarized oppositely, nearly cancelling",
+            "Helped build and test the resistive plate chambers (RPCs) that triggered on forward muons for PHENIX's W-boson measurement",
+            "Took data-acquisition shifts and managed online data reconstruction during the 2013 polarized-proton run, which collected most of the published measurement's data",
+            "Worked on the spin monitor that checks the colliding proton beams' polarization direction at PHENIX",
             "Ran parallel beam-collision simulations on high-performance computing clusters",
-            "Managed petabyte-scale online data reconstruction for the experiment",
-            "Built and tested particle-detector hardware for PHENIX",
             "Award-winning teaching assistant: top 2% of evaluations, with department and university teaching awards"
           ],
           "projects": [],
