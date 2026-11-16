@@ -212,14 +212,13 @@ YAML key.
    `export_cv.py --out <site worktree>/src/data/cv.json`. Either writes `src/data/cv.json` into a
    site worktree and validates it, including the denylist check. The CV goes live when that file
    is committed to `main` here, which triggers the deploy.
-2. **In CI (set up 2026-11-14; first real run pending):** the resume repo's `export-cv.yml` runs
-   the exporter, validates, runs the denylist check, and commits `src/data/cv.json` to this
-   repo's `main` as `cv-export[bot]`. It runs whenever `people/mike/resume.yaml` or
-   `scripts/cv/` changes on the resume repo's `main`, or on demand. Access is a deploy key, not
-   a token: this repo has a write deploy key titled `resume-cv-export`, and its private half is
-   the resume repo's `SITE_DEPLOY_KEY` secret. The workflow takes effect when it merges to the
-   resume repo's `main`, and that merge is its first real run. Earlier runs, from before the
-   key existed, failed at the site checkout. The site repo never gets access to the resume repo.
+2. **In CI (live since 2026-11-15):** the resume repo's `export-cv.yml` runs the exporter,
+   validates, runs the denylist check, and commits `src/data/cv.json` to this repo's `main` as
+   `cv-export[bot]`, which triggers the deploy. It runs whenever `people/mike/resume.yaml` or
+   `scripts/cv/` changes on the resume repo's `main`, or on demand. So merging a `resume.yaml`
+   change there publishes the CV. Access is a deploy key, not a token: this repo has a write
+   deploy key titled `resume-cv-export`, and its private half is the resume repo's
+   `SITE_DEPLOY_KEY` secret. The site repo never gets access to the resume repo.
 
 ## Changing the format
 
