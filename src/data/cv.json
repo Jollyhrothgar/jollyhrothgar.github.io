@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "repo": "Jollyhrothgar/resume",
-    "commit": "3dc71d0"
+    "commit": "6ed578d"
   },
   "basics": {
     "name": "Mike Beaumier",
@@ -144,7 +144,7 @@
               "name": "Quality measurement for LLM content classifiers",
               "year": "2024-2025",
               "highlights": [
-                "Guided the design and validated the launch of Google's LLM auto-labeling classifiers, trusted only where the 95% lower confidence bound on precision cleared 80%, scaling review 10x across billions of web pages",
+                "Guided the design and validated the launch of Google's LLM auto-labeling classifiers, trusted only where the lower bound of the 95% confidence interval on precision cleared 80%, scaling review 10x across billions of web pages",
                 "Set Google Ads Safety's org-wide launch QA for LLM content classifiers, designing and building the sampling-and-review check for classifiers set to launch unchecked after tuning on dozens of examples",
                 "Built precision dashboards for Google's production LLM content classifiers on a continuous stream of human-reviewed samples, with bootstrapped confidence intervals to tell real drops from noise and flag underperformers"
               ]
@@ -168,7 +168,7 @@
               "name": "Ad Query Forecasting to Prioritize Content Review for New URLs",
               "year": "2022-2023",
               "highlights": [
-                "Found in ad-request logs the 90-minute window in which most of a new high-traffic page's harmful ad views can still be prevented, then led the forecasting system that flags such pages inside it, cutting those views 60% in 24 hours"
+                "Found in ad-request logs the 90-minute window in which most of a new high-traffic page's harmful ad views can still be prevented, then led the forecasting system that flags such pages inside it, cutting those views 60% in the first 24 hours"
               ]
             },
             {
