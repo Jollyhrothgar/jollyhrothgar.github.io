@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "source": {
     "repo": "Jollyhrothgar/resume",
-    "commit": "f365d2f"
+    "commit": "34a5881"
   },
   "basics": {
     "name": "Mike Beaumier",
-    "headline": "PhD physicist turned AI engineer and data science leader",
+    "headline": "PhD physicist turned AI engineer and data scientist who leads products from prototype to launch",
     "location": "Southern California",
     "email": "hello@mikebeaumier.com",
     "links": [
@@ -63,20 +63,24 @@
           "highlights": [],
           "projects": [
             {
+              "name": "Established internal AI engineering platform for all developer workflows",
+              "year": "2025-2026",
+              "highlights": [
+                "Designed, built, evaluated, and launched the company's AI coding agent platform, doubling engineering coding output, measured with change-point analysis",
+                "Designed and built the agent workflow that takes a ticket to a merged pull request, delegating each stage to shared skills",
+                "Designed and built a single source format for the company's agent skills, transpiled per editor, so each skill installed correctly in Claude Code, Cursor, and OpenCode without forking the library",
+                "Authored the RFC for measuring whether coding agents follow the company's written instructions, separating whether an agent consulted an instruction from whether its output conformed",
+                "Led the rewrite of the company's AI developer platform in Rust, from proposal to the tool every engineer ran, shipping it in stages so no one lost tooling during the switch"
+              ]
+            },
+            {
               "name": "Designed and implemented company-wide AI code review tooling",
               "year": "2026",
               "highlights": [
                 "Designed, built, evaluated, and launched an AI code reviewer in GitHub that took first-round review off engineers and cut time to approval 41-56% on size-matched changes by ending drawn-out multi-round review threads",
                 "Cut the AI code reviewer's cost to about a tenth of an engineer's review by redesigning it around one higher-quality agent",
-                "Designed and built a benchmark of human-reviewed pull requests, stratified by coding style, size, and domain, showing an AI code reviewer running without developer oversight matched human findings at 89.1% precision",
+                "Designed and built a benchmark of human-reviewed pull requests, stratified by coding style, size, and domain: running without developer oversight, 89.1% of the AI reviewer's findings matched a human reviewer's",
                 "Ran the head-to-head evaluation of AI code-review approaches that set the company's choice, picking a reviewer that caught nearly all known issues at a fraction of the cost"
-              ]
-            },
-            {
-              "name": "Architected data provenance metadata registry for all data artifacts",
-              "year": "2026",
-              "highlights": [
-                "Tech-led a provenance system for every dataset and model the company built: wrote the prototype and all design documents, set the direction, and guided junior engineers who built it into the shared data platform"
               ]
             },
             {
@@ -90,13 +94,41 @@
               ]
             },
             {
-              "name": "Established internal AI engineering platform for all developer workflows",
-              "year": "2025-2026",
+              "name": "Multi-agent orchestration and agent memory",
               "highlights": [
-                "Designed, built, evaluated, and launched the company's AI coding agent platform, doubling engineering coding output",
-                "Designed and built the agent workflow that takes a ticket to a merged pull request, delegating each stage to shared skills",
-                "Designed and built a single source format for the company's agent skills, transpiled per editor, so each skill installed correctly in Claude Code, Cursor, and OpenCode without forking the library",
-                "Authored the RFC for measuring whether coding agents follow the company's written instructions, separating whether an agent consulted an instruction from whether its output conformed"
+                "Designed and built a multi-agent orchestrator that ran parallel coding agents (Claude Code, Codex, Gemini CLI) to plan, write, review, and validate code autonomously over multi-hour runs, before such tools were standard",
+                "Separated real defects from style preferences in code from parallel coding agents by having a second vendor's model (Claude or OpenAI) review each agent's work and arbitrating disagreements before merge",
+                "Built long-term memory for coding agents, a Claude Code plugin with session hooks and durable journals, so what an agent learned carried across sessions and context compaction instead of being rediscovered",
+                "Built a service that condensed each coding-agent session (Claude Code, OpenCode) into a searchable, secret-redacted briefing with capped spend, so a person or another agent could resume after a crash or handoff"
+              ]
+            },
+            {
+              "name": "Vulnerability engine in the production product",
+              "year": "2026",
+              "highlights": [
+                "Built the full backend stack for running the company's vulnerability-detection engine in its production product: session management, APIs, and persistence, with resource allocation and fault tolerance",
+                "Made the company's vulnerability engine build outside its author's environment for the first time, tracing its failures to a lockfile mismatch and a silent merge conflict that git never flagged",
+                "Ran the engine's first end-to-end scan on paid model calls, in which the engine correctly identified every function it escalated as a use-after-free memory bug",
+                "Audited the engine against product requirements and documented the gaps to close before customers could use it"
+              ]
+            },
+            {
+              "name": "Backend for the company's software-vetting product",
+              "year": "2026",
+              "highlights": [
+                "As backend lead, built and shipped the Rust API for a dashboard sales was waiting on, showing a customer which third-party software its security policy allows",
+                "Added live progress to long-running analyses end to end, from the analysis prompt through the report and list APIs, so users could follow an analysis instead of waiting on an opaque result",
+                "Adversarially tested the company's software-vetting product with a synthesized malicious binary posing as safe software, exposing a verdict flaw, and drove the fix to release"
+              ]
+            },
+            {
+              "name": "Enterprise evaluation with a major app store",
+              "year": "2026",
+              "highlights": [
+                "Opened an enterprise evaluation with a major app store's Android malware team through a former colleague, ran a live demo comparing the product's analysis with the buyer's internal tooling, and drove it to product-council review",
+                "Repositioned the product, which the buyer's engineers had filed as a static-analysis tool, as an AI agent that reverse engineers an app the way a skilled analyst does, mapped onto the app-store policies they already enforce",
+                "Delivered the product's fully automated analysis of a real Android threat when the buyer asked for evidence: an app that disguised itself after install and planted a backdoor that survived uninstalling",
+                "Opened a second channel into the same company's trust and safety organization, and coordinated the deal team across engineering leadership and go-to-market"
               ]
             },
             {
@@ -108,16 +140,42 @@
               ]
             },
             {
-              "name": "Multi-agent orchestration and agent memory",
+              "name": "Architected data provenance metadata registry for all data artifacts",
+              "year": "2026",
               "highlights": [
-                "Designed and built a multi-agent orchestrator that ran parallel coding agents (Claude Code, Codex, Gemini CLI) to plan, write, review, and validate code autonomously over multi-hour runs, before such tools were standard",
-                "Separated real defects from style preferences in code from parallel coding agents by having a second vendor's model (Claude or OpenAI) review each agent's work and arbitrating disagreements before merge",
-                "Built long-term memory for coding agents, a Claude Code plugin with session hooks and durable journals, so what an agent learned carried across sessions and context compaction instead of being rediscovered",
-                "Built a service that condensed each coding-agent session (Claude Code, OpenCode) into a searchable, secret-redacted briefing with capped spend, so a person or another agent could resume after a crash or handoff"
+                "Tech-led a provenance system for every dataset and model the company built: wrote the prototype and all design documents, set the direction, and guided junior engineers who built it into the shared data platform"
+              ]
+            },
+            {
+              "name": "Research environment shared by people and coding agents",
+              "year": "2025-2026",
+              "highlights": [
+                "Designed and built a Jupyter research environment where humans and coding agents collaborated in shared live kernels through a custom MCP server, used by multiple researchers for 34 analyses over 4 months",
+                "Designed a persistent knowledge base for research agents, with auto-generated context and staleness tracking, so each new session started out knowing the team's research areas, datasets, and patterns across analyses",
+                "Fixed the real-time collaboration disconnects in an open-source Jupyter MCP server at the source, with the fixes merged upstream instead of carried as a local patch"
+              ]
+            },
+            {
+              "name": "Hardened the build and merge path",
+              "year": "2026",
+              "highlights": [
+                "Stopped pull requests that passed on their own from breaking the main branch together by adding merge-queue CI that tests the exact commit that will land",
+                "Made the team's git worktree tool safe for parallel use, closing race conditions and lock contention, and fixed a cleanup defect that could remove a developer's repository",
+                "Removed recurring build failures blocking the team, moving the binary-analysis toolchain from multi-gigabyte binary files to standard Python packages and fixing container builds that failed on network lookups"
+              ]
+            },
+            {
+              "name": "Engineering standards and code review",
+              "year": "2025-2026",
+              "highlights": [
+                "Set the engineering team's code review standard as its most active reviewer, across domains from security to ML research, the standard its AI reviewer was later calibrated against",
+                "Standardized how engineers worked in the monorepo, with one entrypoint pattern (bootstrap, test, build, server) so any project could run without reading its README",
+                "Replaced hand-kept team directories that had drifted, leaving an engineer assigned as code owner with no notifications, with one machine-readable source that agents and CI read and that is checked for drift",
+                "Built LLM agents that condensed engineering activity, blockers, and tool releases across the company's systems into a daily Slack digest, which the head of business extended into a business report"
               ]
             }
           ],
-          "summary": "AI security startup that finds vulnerabilities in compiled software; brought measurement rigor, verification, analytics-empowered decision-making, data provenance best practices, and AI-native dev tools to its agentic development and its detection models"
+          "summary": "AI security startup that finds vulnerabilities in compiled software; brought data science to its agentic development and its detection models, and built its AI developer platform, its code review automation, and backends for its customer product"
         }
       ]
     },
@@ -135,10 +193,12 @@
             {
               "name": "Gemini review agent for ad-policy reviewers",
               "year": "2024-2025",
-              "summary": "A Chrome extension built on an agent architecture: it processed each webpage and surfaced annotations that pointed human content reviewers to the parts most likely to violate ad policy.",
+              "summary": "Reviewers worked with a keyword highlighter that marked policy terms with no sense of context. This agent, a Chrome extension built on an agent architecture, read each page and pointed reviewers to the parts most likely to violate ad policy.",
               "highlights": [
-                "Conceived, architected, and led the launch of a Gemini-powered LLM agent that flagged ad-policy violations for Google's content reviewers, used in 40,000+ reviews a day and raising throughput 30% in A/B tests",
-                "Built and led the agent's cross-functional team of engineers, analysts, and product managers, and designed and built the A/B testing framework whose randomized controlled trials gated every launch"
+                "Conceived, prototyped, architected, and led the launch of a Gemini-powered LLM agent that flagged ad-policy violations for Google's content reviewers, used in 40,000+ reviews a day and raising throughput 30% in A/B tests",
+                "Created the product area from nothing: defined its vision and roadmap, formed the working group, and won resources across teams and organizations to build it",
+                "Built and led the cross-functional team of engineers, analysts, and product managers that took the agent from prototype to production, and designed and built the A/B testing framework whose randomized controlled trials gated every launch",
+                "Architected the agent end to end, from the data infrastructure joining content crawling, ad serving, and review allocation to the LLM reasoning core and the Chrome extension"
               ]
             },
             {
@@ -162,14 +222,16 @@
               "name": "Automatic Classification of Suspicious Web Content",
               "year": "2023",
               "highlights": [
-                "Designed and built AutoML classifiers on SQL pipelines joining web-content signals with past human review outcomes, cutting manual review up to 80% across hundreds of millions of pages, saving millions a year"
+                "Designed and built AutoML classifiers on SQL pipelines joining web-content signals with past human review outcomes, cutting manual review up to 80% across hundreds of millions of pages, saving millions a year",
+                "Searched thousands of model configurations with Google's AutoML, from linear models to deep networks, and deployed the best on SQL serving stacks after validating them against human review"
               ]
             },
             {
               "name": "Ad Query Forecasting to Prioritize Content Review for New URLs",
               "year": "2022-2023",
               "highlights": [
-                "Found in ad-request logs the 90-minute window in which most of a new high-traffic page's harmful ad views can still be prevented, then led the forecasting system that flags such pages inside it, cutting those views 60% in the first 24 hours"
+                "Found in ad-request logs the 90-minute window in which most of a new high-traffic page's harmful ad views can still be prevented, used it to shape the streaming system that flags such pages, and helped launch it, cutting those views 60% in the first 24 hours",
+                "Built the time-series data and modeling pipeline behind the forecasts, joining unstructured ad-request data with policy data, then folded it into the streaming system, retiring a separate pipeline for one simpler design"
               ]
             },
             {
@@ -178,6 +240,14 @@
               "highlights": [
                 "Led Google Ads Safety's ML fairness working group and set the org-wide bias metric for its content classifiers: false positive rate disparity on propensity-score-matched content, with human validation and hypothesis tests",
                 "Designed and scaled ML fairness measurement across Google's policy classifiers, finding classification disparities affecting protected groups and enabling their fixes"
+              ]
+            },
+            {
+              "name": "Root causes of unwanted ad placements",
+              "year": "2021",
+              "highlights": [
+                "Automated the monthly root-cause report on ads that appeared beside unsuitable content, with Python and SQL reports that pointed to where the system failed",
+                "Reviewed failure cases by hand to find the patterns behind them, giving monthly input for improving the content models and honoring advertisers' placement preferences"
               ]
             }
           ],
@@ -190,17 +260,27 @@
           "highlights": [],
           "projects": [
             {
+              "name": "Revenue-based routing for new advertisers",
+              "highlights": [
+                "Built the data and real-time pipelines for a team model that classified each new advertiser's 91-day revenue bucket to pick its sales treatment, routing $8B+ in revenue across 7M+ new advertisers",
+                "Gave a tabular AutoML revenue-routing model time-series awareness with trend-line features fit to each account's recent history, its largest gain: precision up 20%+ on high-spend advertisers",
+                "Mentored and onboarded new members of the team behind Google's $8B+ new-advertiser revenue-routing model, kept its data pipelines stable, wrote the model's documentation, and presented its results to leadership"
+              ]
+            },
+            {
               "name": "Incremental spend from a partner incentive fund",
               "year": "2020-2021",
               "highlights": [
-                "Scoped, built, and delivered a self-updating dashboard measuring the daily incremental spend of Google's channel sales partners from a multi-million-dollar incentive fund, using counterfactual time-series forecasts fit on pre-fund spend"
+                "Scoped, built, and delivered a self-updating dashboard measuring the daily incremental spend of Google's channel sales partners from a multi-million-dollar incentive fund, using counterfactual time-series forecasts fit on pre-fund spend",
+                "Wrote the business requirements and design doc with the partner-incentives team, and built the pipeline tracking each partner's acquisitions"
               ]
             },
             {
               "name": "Measuring sales-program incrementality",
               "year": "2020",
               "highlights": [
-                "Wrote the requirements, built the data pipelines, and tech-led the team that shipped synthetic-control causal inference for 3 sales programs worth hundreds of millions of dollars where trials were not viable, validated on synthetic data and pre-treatment placebo tests"
+                "Wrote the requirements, built the data pipelines, and tech-led the team that shipped synthetic-control causal inference for 3 sales programs worth hundreds of millions of dollars where trials were not viable, validated on synthetic data and pre-treatment placebo tests",
+                "Moved the team onto sprints and retrospectives, improving its communication and on-time delivery, and refactored its incrementality pipelines into reusable, stable workflows"
               ]
             },
             {
@@ -209,14 +289,6 @@
               "highlights": [
                 "Built advertiser churn prediction end to end, from dataset and metrics to AutoML logistic-regression models and an automated lead pipeline and dashboard Google sales used to pick at-risk advertisers for high-touch outreach",
                 "Sized a churn-prevention pilot for Google's at-risk advertisers with iterative power analyses, including sensitivity to the churn rate, and designed the framework assigning advertisers to test and control groups"
-              ]
-            },
-            {
-              "name": "Revenue-based routing for new advertisers",
-              "highlights": [
-                "Built the data and real-time pipelines for a team model that classified each new advertiser's 91-day revenue bucket to pick its sales treatment, routing $8B+ in revenue across 7M+ new advertisers",
-                "Gave a tabular AutoML revenue-routing model time-series awareness with trend-line features fit to each account's recent history, its largest gain: precision up 20%+ on high-spend advertisers",
-                "Mentored and onboarded new members of the team behind Google's $8B+ new-advertiser revenue-routing model, kept its data pipelines stable, wrote the model's documentation, and presented its results to leadership"
               ]
             }
           ],
@@ -254,7 +326,9 @@
             "Led the final modeling stages of MBUX, Mercedes' 2018 flagship head-unit software, whose probabilistic graphical models predicted each driver's destinations, media, and calls from privacy-preserving in-car data",
             "Built a reporting framework and predictive models of when vehicles would need service from Mercedes' global aftermarket data, informing marketing and helping dealerships prevent customer churn",
             "Built the end-to-end data and ML pipeline for a mobile EV-charging pilot, from a daily vehicle-telemetry pipeline and stakeholder dashboard to models predicting battery state, destination, and parking time",
-            "Built Mercedes' first ML model of tire replacement, using hierarchical modeling to time proactive dealership outreach"
+            "Built Mercedes' first ML model of tire replacement, using hierarchical modeling to time proactive dealership outreach",
+            "Built and improved the consistency-testing framework for MBUX, Mercedes' 2018 flagship head-unit software, across multiple platforms",
+            "Built a Python decorator library that generated REST APIs and web UIs from plain Python functions"
           ],
           "projects": [],
           "summary": "Machine learning for in-car personalization and vehicle service analytics"
@@ -392,6 +466,25 @@
       ]
     },
     {
+      "group": "Programming and infrastructure",
+      "items": [
+        "Python",
+        "SQL",
+        "Pandas, NumPy, SciPy, statsmodels",
+        "Pydantic",
+        "DuckDB",
+        "Colab",
+        "Rust",
+        "Bash",
+        "REST APIs",
+        "Kubernetes",
+        "Docker",
+        "Bazel",
+        "GitHub Actions",
+        "Git internals"
+      ]
+    },
+    {
       "group": "Machine learning",
       "items": [
         "Gradient-boosted trees (XGBoost, LightGBM)",
@@ -413,7 +506,7 @@
         "Model stacking",
         "A/B testing",
         "Experimental design",
-        "Causal inference",
+        "Causal inference (counterfactual forecasting)",
         "Power analysis",
         "Propensity score matching",
         "Bootstrapped confidence intervals",
@@ -431,22 +524,6 @@
         "Dagster",
         "PostgreSQL",
         "Metadata registry design"
-      ]
-    },
-    {
-      "group": "Programming and infrastructure",
-      "items": [
-        "Python",
-        "SQL",
-        "Pandas, NumPy, SciPy, statsmodels",
-        "Pydantic",
-        "DuckDB",
-        "Colab",
-        "Rust",
-        "Bash",
-        "Kubernetes",
-        "Docker",
-        "GitHub Actions"
       ]
     }
   ]
