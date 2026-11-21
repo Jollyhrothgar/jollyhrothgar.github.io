@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "repo": "Jollyhrothgar/resume",
-    "commit": "8c0b4ae"
+    "commit": "f365d2f"
   },
   "basics": {
     "name": "Mike Beaumier",
@@ -39,11 +39,11 @@
           "start": "2025-05",
           "end": null,
           "highlights": [
-            "Partnered with YouTube banjo teacher Jim Pankey (156,000 subscribers, 20 million views) through cold outreach, landing a lesson video that sends viewers to the site's free tab; new visitors in the first three weeks of November 2026 reached nearly five times October's",
             "Reverse-engineered the binary format of TablEdit, a long-standing desktop tab editor, so 786 tabs that needed the desktop program now play, print, and edit in any browser, and published an open, diffable notation format that programs can read and edit",
-            "Built a tab player that plays several instruments together in the browser, slowed down, looped, or in another key, and an editor where musicians write new tabs that play back",
             "Built a library of 19,500+ bluegrass works by normalizing 15 sources in six formats into one record per song, with extraction ranging from custom HTML parsers to AI vision transcription of a handwritten 1981 songbook, and a searchable core of nearly 3,000 jam songs",
             "Designed and built the whole stack, from a static site with a search index rebuilt in CI to a Postgres backend with row-level security, sign-in, and 11 serverless functions, so a musician's correction shows in seconds and is committed to the song's files, which redeploy once tests pass",
+            "Built a tab player that plays several instruments together in the browser, slowed down, looped, or in another key, and an editor where musicians write new tabs that play back",
+            "Partnered with YouTube banjo teacher Jim Pankey (156,000 subscribers, 20 million views) through cold outreach, landing a lesson video that sends viewers to the site's free tab; November 2026 brought 3,100+ new visitors, nearly five times October's",
             "Ran bluegrassbook.com as a free, installable web app that keeps opened songs available offline, for under $5 a month"
           ],
           "projects": [],
