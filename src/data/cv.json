@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "source": {
     "repo": "Jollyhrothgar/resume",
-    "commit": "34a5881"
+    "commit": "ea54026"
   },
   "basics": {
     "name": "Mike Beaumier",
@@ -47,7 +47,7 @@
             "Ran bluegrassbook.com as a free, installable web app that keeps opened songs available offline, for under $5 a month"
           ],
           "projects": [],
-          "summary": "Song and tablature library for bluegrass musicians with about 7,000 visitors; founded it and owned product, engineering, and operations"
+          "summary": "Song and tablature library for bluegrass musicians with about 7,000 visitors; founded it in May 2025, went full-time in November 2026, and owned product, engineering, and operations"
         }
       ]
     },
