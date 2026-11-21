@@ -2,6 +2,10 @@
 import Base from '../layouts/Base.astro';
 import Divider from '../components/Divider.astro';
 import { cv } from '../lib/cv';
+
+// The CV headline carries no closing period; add one so it doesn't run into the next sentence.
+const headline = cv.basics.headline.trim();
+const leadHeadline = /[.!?]$/.test(headline) ? headline : `${headline}.`;
 ---
 
 <Base
@@ -10,7 +14,7 @@ import { cv } from '../lib/cv';
 >
   <section class="intro">
     <h1>Mike Beaumier</h1>
-    <p class="lead">{cv.basics.headline} Banjo player. Nerd.</p>
+    <p class="lead">{leadHeadline} Banjo player. Nerd.</p>
 
     <!-- Work: the headshot sits top left, with the text wrapping around it -->
     <div class="half">
